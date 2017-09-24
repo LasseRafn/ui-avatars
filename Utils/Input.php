@@ -1,5 +1,7 @@
 <?php namespace Utils;
 
+use LasseRafn\Initials\Initials;
+
 class Input
 {
 	public $name;
@@ -19,8 +21,14 @@ class Input
 		$this->background = $_GET['background'] ?? '#000';
 		$this->color      = $_GET['color'] ?? '#fff';
 
+		$this->getInitials();
 		$this->fixInvalidInput();
 		$this->generateCacheKey();
+	}
+
+	private function getInitials()
+	{
+		$this->initials =  ( new Initials )->generate( $this->name );
 	}
 
 	private function generateCacheKey()
