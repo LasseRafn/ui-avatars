@@ -15,6 +15,7 @@ $image = $avatar->name($_GET['name'] ?? 'John Doe')
 		->size((int) ($_GET['size'] ?? 64))
 		->background($_GET['background'] ?? '#000')
 		->color($_GET['color'] ?? '#fff')
+		->cache()
 		->generate();
 
 echo $image->stream('png', 100);
