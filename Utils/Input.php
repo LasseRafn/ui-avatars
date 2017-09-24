@@ -72,8 +72,16 @@ class Input
 			$this->length = 1;
 		}
 
+		if ( $this->fontSize <= 0 ) {
+			$this->fontSize = 0.5;
+		}
+
 		if ( $this->size <= 0 ) {
-			$this->size = 0.5;
+			$this->size = 16;
+		}
+
+		if ( $this->size > 1024 ) {
+			$this->size = 1024;
 		}
 	}
 }
