@@ -7,7 +7,7 @@ header( 'Content-type: image/png' );
 $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar();
 $input  = new \Utils\Input;
 
-if ( file_exists( __DIR__ . "/cache/{$input->cacheKey}.png" ) ) {
+if ( ! isset( $_GET['no-cache'] ) && file_exists( __DIR__ . "/cache/{$input->cacheKey}.png" ) ) {
 	echo readfile( __DIR__ . "/cache/{$input->cacheKey}.png" );
 
 	return;
