@@ -11,6 +11,7 @@ class Input
 	public $background;
 	public $color;
 	public $cacheKey;
+	public $rounded;
 
 	public function __construct()
 	{
@@ -21,19 +22,48 @@ class Input
 		$this->background = $_GET['background'] ?? '#000';
 		$this->color      = $_GET['color'] ?? '#fff';
 
+		$this->getRounded();
 		$this->getInitials();
 		$this->fixInvalidInput();
 		$this->generateCacheKey();
 	}
 
+	private function getRounded()
+	{
+		$rounded = $_GET['rounded'] ?? false;
+
+		if ( is_bool( $rounded ) ) {
+			$this->rounded = $rounded;
+
+			return;
+		}
+
+		switch ( $rounded ) {
+			case 'true':
+			case 1:
+			case '1':
+			case 'yes':
+				$this->rounded = true;
+				break;
+
+			case 'false':
+			case 0:
+			case '0':
+			case 'no':
+			default:
+				$this->rounded = false;
+				break;
+		}
+	}
+
 	private function getInitials()
 	{
-		$this->initials =  ( new Initials )->generate( $this->name );
+		$this->initials = ( new Initials )->generate( $this->name );
 	}
 
 	private function generateCacheKey()
 	{
-		$this->cacheKey = md5( "{$this->initials}-{$this->length}-{$this->size}-{$this->fontSize}-{$this->background}-{$this->color}" );
+		$this->cacheKey = md5( "{$this->initials}-{$this->length}-{$this->size}-{$this->fontSize}-{$this->background}-{$this->color}-{$this->rounded}" );
 	}
 
 	private function fixInvalidInput()

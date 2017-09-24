@@ -19,6 +19,7 @@ $image = $avatar->name( $input->name )
                 ->size( $input->size )
                 ->background( $input->background )
                 ->color( $input->color )
+                ->rounded( $input->rounded )
                 ->generate();
 
 $image->save( __DIR__ . "/cache/{$input->cacheKey}.png" );
