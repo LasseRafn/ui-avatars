@@ -1,0 +1,5 @@
+{
+    "require": {
+        "lasserafn/php-initial-avatar-generator": "^2.0"
+    }
+}
