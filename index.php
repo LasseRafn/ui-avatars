@@ -19,6 +19,7 @@ $image = $avatar->name( $input->name )
                 ->size( $input->size )
                 ->background( $input->background )
                 ->color( $input->color )
+                ->smooth()
                 ->rounded( $input->rounded )
                 ->generate();
 
