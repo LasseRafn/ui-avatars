@@ -10,13 +10,13 @@
 		body {font: 14px/1.5 'Open Sans', sans-serif; color: #222; background: #fff; margin: 0; padding: 0}
 		.container {width: 600px; margin: 2em auto; padding: 0 15px}
 
-		.header {margin: 0 0 4em}
+		.header {}
 		.footer {font-size: 0.875em; line-height: 1.2; text-align: center}
 
 		h1 {font-size: 3em; margin: 0}
 		h2 {font-size: 2em; margin: 2em 0 0}
 		h2.subtitle {font-weight: normal; font-size: 1.25em; margin: 0.25em 0 0}
-		h3 {font-size: 1.25em; margin: 1em 0 0}
+		h3 {font-weight: 600; font-size: 1.125em; margin: 1em 0 0.5em}
 
 		hr {border: none; background: #d8d8d8; height: 1px; margin: 2em 0}
 
@@ -29,6 +29,10 @@
 		code.get:hover:after {color: #568bbf; content: ' TRY'; float: right}
 		code span.param {color: #A87847}
 		code span.value {color: #6E9C40}
+
+		@media all and (max-width: 600px) {
+			code.get:hover:after {display: none}
+		}
 	</style>
 </head>
 <body>
@@ -41,10 +45,12 @@
 
 		<h2>Usage</h2>
 
-		<p>Generate a avatar with default settings, for user "John Doe".</p>
+		<p>All requests returns a image stream to be used direcly in a <code class="inline">&lt;img/&gt;</code> tag.</p>
+
+		<h3>Generate a avatar with default settings, for user "John Doe".</h3>
 		<code class="get" onclick="window.open('/api?name=John+Doe')">https://ui-avatars.com/api?<span class="param">name</span>=<span class="value">John+Doe</span></code>
 
-		<p>Generate a blue avatar</p>
+		<h3>Generate a blue avatar</h3>
 		<code class="get" onclick="window.open('/api?background=0D8ABC&color=fff')">https://ui-avatars.com/api?<span class="param">background</span>=<span class="value">0D8ABC</span>&<span class="param">color</span>=<span class="value">fff</span></code>
 
 		<h2>Settings</h2>
