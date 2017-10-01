@@ -1,0 +1,1 @@
+Code for https://ui-avatars.com
