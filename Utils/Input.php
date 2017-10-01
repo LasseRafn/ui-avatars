@@ -58,7 +58,7 @@ class Input
 
 	private function getInitials()
 	{
-		$this->initials = ( new Initials )->generate( $this->name );
+		$this->initials = ( new Initials )->length( $this->length )->generate( $this->name );
 	}
 
 	private function generateCacheKey()
