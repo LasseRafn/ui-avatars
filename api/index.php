@@ -1,6 +1,6 @@
 <?php
 
-define('__ROOT__', __DIR__ . '/..');
+define( '__ROOT__', __DIR__ . '/..' );
 
 require_once __ROOT__ . '/vendor/autoload.php';
 
@@ -28,4 +28,5 @@ $image = $avatar->name( $input->name )
 $image->save( __ROOT__ . "/cache/{$input->cacheKey}.png" );
 
 echo $image->stream( 'png', 100 );
+
 return;
