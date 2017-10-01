@@ -1,14 +1,16 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+define('__ROOT__', __DIR__ . '/..');
+
+require_once __ROOT__ . '/vendor/autoload.php';
 
 header( 'Content-type: image/png' );
 
 $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar();
 $input  = new \Utils\Input;
 
-if ( ! isset( $_GET['no-cache'] ) && file_exists( __DIR__ . "/cache/{$input->cacheKey}.png" ) ) {
-	echo readfile( __DIR__ . "/cache/{$input->cacheKey}.png" );
+if ( ! isset( $_GET['no-cache'] ) && file_exists( __ROOT__ . "/cache/{$input->cacheKey}.png" ) ) {
+	echo readfile( __ROOT__ . "/cache/{$input->cacheKey}.png" );
 
 	return;
 }
@@ -23,7 +25,7 @@ $image = $avatar->name( $input->name )
                 ->rounded( $input->rounded )
                 ->generate();
 
-$image->save( __DIR__ . "/cache/{$input->cacheKey}.png" );
+$image->save( __ROOT__ . "/cache/{$input->cacheKey}.png" );
 
 echo $image->stream( 'png', 100 );
 return;
