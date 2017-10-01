@@ -1,5 +1,7 @@
 <?php
 
+ob_start('ob_gzhandler');
+
 define( '__ROOT__', __DIR__ . '/..' );
 
 require_once __ROOT__ . '/vendor/autoload.php';
