@@ -2,7 +2,7 @@
 
 $files            = glob( __DIR__ . '/../cache/*.png' );
 $now              = time();
-$twoDaysInSeconds = 60 * 60 * 24 * 2;
+$twoDaysInSeconds = 172800;
 
 foreach ( $files as $file ) {
 	if ( is_file( $file ) ) {
