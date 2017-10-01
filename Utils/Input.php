@@ -19,8 +19,8 @@ class Input
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
 		$this->size       = (int) ( $_GET['size'] ?? 64 );
 		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
-		$this->background = $_GET['background'] ?? '#000';
-		$this->color      = $_GET['color'] ?? '#fff';
+		$this->background = $_GET['background'] ?? '#ddd';
+		$this->color      = $_GET['color'] ?? '#222';
 
 		$this->getRounded();
 		$this->getInitials();
@@ -74,6 +74,10 @@ class Input
 
 		if ( $this->fontSize <= 0 ) {
 			$this->fontSize = 0.5;
+		}
+
+		if ( $this->fontSize > 1 ) {
+			$this->fontSize = 1;
 		}
 
 		if ( $this->size <= 0 ) {
