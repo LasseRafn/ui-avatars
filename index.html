@@ -3,8 +3,84 @@
 <head>
 	<meta charset="UTF-8">
 	<title>User Initial avatars</title>
+
+	<style>
+		button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+		* { max-width: 100%; box-sizing: border-box }
+		body {font: 14px/1.5 'Open Sans', sans-serif; color: #222; background: #fff; margin: 0; padding: 0}
+		.container {width: 600px; margin: 2em auto; padding: 0 15px}
+
+		.header {margin: 0 0 4em}
+
+		h1 {font-size: 3em; margin: 0}
+		h2 {font-size: 2em; margin: 2em 0 0}
+		h2.subtitle {font-weight: normal; font-size: 1.25em; margin: 0.25em 0 0}
+		h3 {font-size: 1.25em; margin: 1em 0 0}
+
+		hr {border: none; background: #d8d8d8; height: 1px; margin: 2em 0}
+
+		code {background: #f7f9fb; display: block; font-size: 13px; margin-bottom: 2em; padding: 1em}
+		code.inline {display: inline-block; padding: .25em; margin: 0}
+		code.get:before {color: #568bbf; content: 'GET '}
+		code.get:hover {cursor: pointer; background: #f2f4fd}
+		code.get:hover:after {color: #568bbf; content: ' TRY'; float: right}
+		code span.param {color: #A87847}
+		code span.value {color: #6E9C40}
+	</style>
 </head>
 <body>
+	<div class="container">
+		<div class="header">
+			<h1>UI Avatars</h1>
+			<h2 class="subtitle">Generate avatars with initials from names.</h2>
+			<p>UI Avatars has a simple-to-use API with no limiting or login. No usage tracking and no information is stored. The final images are cached, but nothing else.</p>
+		</div>
 
+		<h2>Usage</h2>
+
+		<p>Generate a avatar with default settings, for user "John Doe".</p>
+		<code class="get" onclick="window.open('/api?name=John+Doe')">https://ui-avatars.com/api?<span class="param">name</span>=<span class="value">John+Doe</span></code>
+
+		<p>Generate a blue avatar</p>
+		<code class="get" onclick="window.open('/api?background=0D8ABC&color=fff')">https://ui-avatars.com/api?<span class="param">background</span>=<span class="value">0D8ABC</span>&<span class="param">color</span>=<span class="value">fff</span></code>
+
+		<h2>Settings</h2>
+
+		<h3>Image Size (<code class="inline">size</code>)</h3>
+		<p>Avatar image size in pixels. Between: 16 and 256. Default: 64</p>
+		<code class="get" onclick="window.open('/api?size=128')">https://ui-avatars.com/api?<span class="param">size</span>=<span class="value">128</span></code>
+
+		<h3>Font Size (<code class="inline">font-size</code>)</h3>
+		<p>Font size in percentage of <code class="inline">size</code>. Between 0.1 and 1. Default: 0.5</p>
+		<code class="get" onclick="window.open('/api?font-size=0.33')">https://ui-avatars.com/api?<span class="param">font-size</span>=<span class="value">0.33</span></code>
+
+		<h3>Initial Characters (<code class="inline">length</code>)</h3>
+		<p>Length of the generated initials. Default: 2</p>
+		<code class="get" onclick="window.open('/api?length=1')">https://ui-avatars.com/api?<span class="param">length</span>=<span class="value">1</span></code>
+
+		<h3>Name (<code class="inline">name</code>)</h3>
+		<p>The name used to generate initials. You can specify the initals yourself as well. Default: John Doe</p>
+		<code class="get" onclick="window.open('/api?name=Elon+Musk')">https://ui-avatars.com/api?<span class="param">name</span>=<span class="value">Elon+Musk</span></code>
+
+		<h3>Rounded Image (<code class="inline">rounded</code>)</h3>
+		<p>Boolean specifying if the returned image should be a circle. Default: false</p>
+		<code class="get" onclick="window.open('/api?rounded=true')">https://ui-avatars.com/api?<span class="param">rounded</span>=<span class="value">true</span></code>
+
+		<h3>Background Color (<code class="inline">background</code>)</h3>
+		<p>Hex color for the image background, without the hash (#). Default: ddd</p>
+		<code class="get" onclick="window.open('/api?background=a0a0a0')">https://ui-avatars.com/api?<span class="param">background</span>=<span class="value">a0a0a0</span></code>
+
+		<h3>Font Color (<code class="inline">color</code>)</h3>
+		<p>Hex color for the font, without the hash (#). Default: 222</p>
+		<code class="get" onclick="window.open('/api?color=ff0000')">https://ui-avatars.com/api?<span class="param">color</span>=<span class="value">ff0000</span></code>
+
+		<p>All settings above can be mixed together as you desire.</p>
+
+		<h2>With gravatar or similar</h2>
+		<p>A good use-case would be using it as a fallback for Gravatar. Example:</p>
+		<code>https://www.gravatar.com/avatar/00000000000000000000000000000000?<span class="param">d</span>=<span class="value">https%3A%2F%2Fui-avatars.com%2Fapi%3Fname%3DJohn%2BDoe</span></code>
+	</div>
+
+	<!-- Landing inspired by http://fixer.io -->
 </body>
 </html>

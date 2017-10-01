@@ -80,7 +80,7 @@ class Input
 			$this->fontSize = 1;
 		}
 
-		if ( $this->size <= 0 ) {
+		if ( $this->size <= 15 ) {
 			$this->size = 16;
 		}
 
