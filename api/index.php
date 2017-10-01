@@ -14,7 +14,7 @@ $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar();
 $input  = new \Utils\Input;
 
 if ( ! isset( $_GET['no-cache'] ) && file_exists( __ROOT__ . "/cache/{$input->cacheKey}.png" ) ) {
-	header( 'Expires: ' . gmdate( 'D, d M Y H:i:s \G\M\T', time() + filemtime( __ROOT__ . "/cache/{$input->cacheKey}.png" ) ) );
+	header( 'Expires: ' . gmdate( 'D, d M Y H:i:s \G\M\T', filemtime( __ROOT__ . "/cache/{$input->cacheKey}.png" ) + 172800 ) );
 	$file = fopen( __ROOT__ . "/cache/{$input->cacheKey}.png", 'rb' );
 	fpassthru( $file );
 
