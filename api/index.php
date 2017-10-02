@@ -1,5 +1,6 @@
 <?php
 
+
 ob_start( 'ob_gzhandler' );
 
 define( '__ROOT__', __DIR__ . '/..' );
@@ -24,6 +25,12 @@ else {
 	header( 'Expires: ' . gmdate( 'D, d M Y H:i:s \G\M\T', time() + 172800 ) );
 }
 
+$font = __DIR__ . '/../fonts/NotoSans-Regular.ttf';
+
+if(preg_match("/\p{Thai}/u", $_GET['name']) > 0) {
+	$font = __DIR__ . '/../fonts/NotoSansThai-Regular.ttf';
+}
+
 $image = $avatar->name( $input->name )
                 ->length( $input->length )
                 ->fontSize( $input->fontSize )
@@ -31,7 +38,7 @@ $image = $avatar->name( $input->name )
                 ->background( $input->background )
                 ->color( $input->color )
                 ->smooth()
-                ->font( '/fonts/NotoSans-Regular.otf' )
+                ->font( $font )
                 ->rounded( $input->rounded )
                 ->generate();
 
