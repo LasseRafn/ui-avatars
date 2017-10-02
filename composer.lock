@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "74e7ecde49982d031655e1ad866add0b",
+    "content-hash": "bbb59852bfae3614c0de02fd4001d648",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -521,22 +521,23 @@
         },
         {
             "name": "lasserafn/php-initial-avatar-generator",
-            "version": "2.0.8",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LasseRafn/php-initial-avatar-generator.git",
-                "reference": "acbc4464ae37841168be5196261b3a98cf775fcc"
+                "reference": "376aa6c718e54cbfe6ea52b43d8736281b33c53e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LasseRafn/php-initial-avatar-generator/zipball/acbc4464ae37841168be5196261b3a98cf775fcc",
-                "reference": "acbc4464ae37841168be5196261b3a98cf775fcc",
+                "url": "https://api.github.com/repos/LasseRafn/php-initial-avatar-generator/zipball/376aa6c718e54cbfe6ea52b43d8736281b33c53e",
+                "reference": "376aa6c718e54cbfe6ea52b43d8736281b33c53e",
                 "shasum": ""
             },
             "require": {
                 "intervention/image": "^2.3",
                 "intervention/imagecache": "^2.3",
                 "lasserafn/php-initials": "^2.0",
+                "lasserafn/php-string-script-language": "^0.1.0",
                 "php": "^5.6|^7.0|^7.1"
             },
             "require-dev": {
@@ -565,7 +566,7 @@
                 "avatar",
                 "image"
             ],
-            "time": "2017-09-25T08:01:08+00:00"
+            "time": "2017-10-02T19:19:08+00:00"
         },
         {
             "name": "lasserafn/php-initials",
@@ -610,6 +611,54 @@
                 "php"
             ],
             "time": "2017-06-14T09:18:19+00:00"
+        },
+        {
+            "name": "lasserafn/php-string-script-language",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LasseRafn/php-string-script-language.git",
+                "reference": "afde8404f211af21f7ec8b453eb84ce70bbd3692"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LasseRafn/php-string-script-language/zipball/afde8404f211af21f7ec8b453eb84ce70bbd3692",
+                "reference": "afde8404f211af21f7ec8b453eb84ce70bbd3692",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6|^7.0|^7.1"
+            },
+            "require-dev": {
+                "doctrine/instantiator": "1.0.5",
+                "phpunit/phpunit": "^5.6",
+                "phpunit/phpunit-mock-objects": "3.2.4",
+                "satooshi/php-coveralls": "^1.0",
+                "sebastian/exporter": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LasseRafn\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lasse Rafn",
+                    "email": "lasserafn@gmail.com"
+                }
+            ],
+            "description": "Detect language/encoding of a string in PHP",
+            "keywords": [
+                "language",
+                "php",
+                "string"
+            ],
+            "time": "2017-10-02T18:34:33+00:00"
         },
         {
             "name": "nesbot/carbon",
