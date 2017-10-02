@@ -19,7 +19,8 @@ if ( ! isset( $_GET['no-cache'] ) && file_exists( __ROOT__ . "/cache/{$input->ca
 	fpassthru( $file );
 
 	exit;
-} else {
+}
+else {
 	header( 'Expires: ' . gmdate( 'D, d M Y H:i:s \G\M\T', time() + 172800 ) );
 }
 
@@ -30,6 +31,7 @@ $image = $avatar->name( $input->name )
                 ->background( $input->background )
                 ->color( $input->color )
                 ->smooth()
+                ->font( '/fonts/NotoSans-Regular.otf' )
                 ->rounded( $input->rounded )
                 ->generate();
 
