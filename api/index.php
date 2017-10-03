@@ -1,6 +1,5 @@
 <?php
 
-
 ob_start( 'ob_gzhandler' );
 
 define( '__ROOT__', __DIR__ . '/..' );

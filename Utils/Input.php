@@ -15,6 +15,13 @@ class Input
 
 	public function __construct()
 	{
+		$requestUrl = ltrim( $_SERVER['REQUEST_URI'], '/' );
+		$isBase64   = base64_encode( base64_decode( $requestUrl, true ) ) === $requestUrl;
+
+		if ( $isBase64 ) {
+			parse_str( base64_decode( $requestUrl, true ), $_GET );
+		}
+
 		$this->name       = $_GET['name'] ?? 'John Doe';
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
 		$this->size       = (int) ( $_GET['size'] ?? 64 );
