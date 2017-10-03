@@ -97,6 +97,11 @@ class Input
 		$requestUrl = ltrim( $requestUrl, '/' );
 		$isBase64   = base64_encode( base64_decode( $requestUrl, true ) ) === $requestUrl;
 
+		if ( !$isBase64 ) {
+			$requestUrl = urldecode($requestUrl);
+			$isBase64   = base64_encode( base64_decode( $requestUrl, true ) ) === $requestUrl;
+		}
+
 		if ( $isBase64 ) {
 			parse_str( base64_decode( $requestUrl, true ), $_GET );
 		}
