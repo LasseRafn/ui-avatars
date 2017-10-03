@@ -134,7 +134,7 @@ class Input
 				continue;
 			}
 
-			$_GET[ self::$indexes[ $index ] ] = $value;
+			$_GET[ self::$indexes[ $index ] ] = urldecode($value);
 		}
 	}
 }
