@@ -15,14 +15,7 @@ class Input
 
 	public function __construct()
 	{
-		$requestUrl = ltrim( $_SERVER['REQUEST_URI'], '/' );
-		$requestUrl = ltrim( $requestUrl, 'api' );
-		$requestUrl = ltrim( $requestUrl, '/' );
-		$isBase64   = base64_encode( base64_decode( $requestUrl, true ) ) === $requestUrl;
-
-		if ( $isBase64 ) {
-			parse_str( base64_decode( $requestUrl, true ), $_GET );
-		}
+		$this->detectBase64();
 
 		$this->name       = $_GET['name'] ?? 'John Doe';
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
@@ -95,6 +88,17 @@ class Input
 
 		if ( $this->size > 256 ) {
 			$this->size = 256;
+		}
+	}
+
+	private function detectBase64() {
+		$requestUrl = ltrim( $_SERVER['REQUEST_URI'], '/' );
+		$requestUrl = ltrim( $requestUrl, 'api' );
+		$requestUrl = ltrim( $requestUrl, '/' );
+		$isBase64   = base64_encode( base64_decode( $requestUrl, true ) ) === $requestUrl;
+
+		if ( $isBase64 ) {
+			parse_str( base64_decode( $requestUrl, true ), $_GET );
 		}
 	}
 }
