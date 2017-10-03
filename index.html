@@ -121,7 +121,7 @@
 		<p>A good use-case would be using it as a fallback for Gravatar. Example:</p>
 		<code>https://www.gravatar.com/avatar/<span class="value">EMAIL_MD5</span>?<span class="param">d</span>=<span class="value">https%3A%2F%2Fui-avatars.com%2Fapi%2FBASE64_ENCODED_PARAMETERS</span></code>
 
-		<p>BASE64_ENCODED_PARAMETERS is required because gravatar does not support query parameters in default images. All you got do to is base64 encode your parameters like so:</p>
+		<p>BASE64_ENCODED_PARAMETERS is required because gravatar does not support query parameters in default images. All you got do to is base64 and url encode your parameters like so:</p>
 
 		<code>urlencode( base64_encode( 'name=Lasse+Rafn&length=3) )</code>
 
