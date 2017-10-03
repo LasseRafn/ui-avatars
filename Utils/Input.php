@@ -16,6 +16,8 @@ class Input
 	public function __construct()
 	{
 		$requestUrl = ltrim( $_SERVER['REQUEST_URI'], '/' );
+		$requestUrl = ltrim( $requestUrl, 'api' );
+		$requestUrl = ltrim( $requestUrl, '/' );
 		$isBase64   = base64_encode( base64_decode( $requestUrl, true ) ) === $requestUrl;
 
 		if ( $isBase64 ) {
