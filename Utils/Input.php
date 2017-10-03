@@ -13,16 +13,29 @@ class Input
 	public $cacheKey;
 	public $rounded;
 
+	private $hasQueryParameters = false;
+
+	protected static $indexes = [
+		'name',
+		'size',
+		'background',
+		'color',
+		'length',
+		'font-size',
+		'rounded'
+	];
+
 	public function __construct()
 	{
-		$this->detectBase64();
+		$this->detectQueryParameters();
+		$this->detectUrlBasedParameters();
 
 		$this->name       = $_GET['name'] ?? 'John Doe';
-		$this->length     = (int) ( $_GET['length'] ?? 2 );
 		$this->size       = (int) ( $_GET['size'] ?? 64 );
-		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
 		$this->background = $_GET['background'] ?? '#ddd';
 		$this->color      = $_GET['color'] ?? '#222';
+		$this->length     = (int) ( $_GET['length'] ?? 2 );
+		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
 
 		$this->getRounded();
 		$this->getInitials();
@@ -91,19 +104,37 @@ class Input
 		}
 	}
 
-	private function detectBase64() {
+	private function detectQueryParameters()
+	{
+		foreach ( $_GET as $item => $value ) {
+			if ( in_array( $item, self::$indexes, true ) ) {
+				$this->hasQueryParameters = true;
+
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private function detectUrlBasedParameters()
+	{
+		if ( $this->hasQueryParameters ) {
+			return false;
+		}
+
 		$requestUrl = ltrim( $_SERVER['REQUEST_URI'], '/' );
 		$requestUrl = ltrim( $requestUrl, 'api' );
 		$requestUrl = ltrim( $requestUrl, '/' );
-		$isBase64   = base64_encode( base64_decode( $requestUrl, true ) ) === $requestUrl;
 
-		if ( !$isBase64 ) {
-			$requestUrl = urldecode($requestUrl);
-			$isBase64   = base64_encode( base64_decode( $requestUrl, true ) ) === $requestUrl;
-		}
+		$parameters = explode( '/', $requestUrl );
 
-		if ( $isBase64 ) {
-			parse_str( base64_decode( $requestUrl, true ), $_GET );
+		foreach ( $parameters as $index => $value ) {
+			if ( ! isset( self::$indexes[ $index ] ) ) {
+				continue;
+			}
+
+			$_GET[ self::$indexes[ $index ] ] = $value;
 		}
 	}
 }
