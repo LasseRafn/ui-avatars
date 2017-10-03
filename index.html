@@ -123,7 +123,7 @@
 
 		<p>BASE64_ENCODED_PARAMETERS is required because gravatar does not support query parameters in default images. All you got do to is base64 encode your parameters like so:</p>
 
-		<code>base64_encode('name=Lasse+Rafn&length=3)</code>
+		<code>urlencode( base64_encode( 'name=Lasse+Rafn&length=3) )</code>
 
 		<p>Usage example</p>
 		<code>https://www.gravatar.com/avatar/<span class="value">EMAIL_MD5</span>?<span class="param">d</span>=<span class="value">https%3A%2F%2Fui-avatars.com%2Fapi%2FbmFtZT1MYXNzZStSYWZu</span></code>
