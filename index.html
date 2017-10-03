@@ -121,7 +121,7 @@
 		<p>A good use-case would be using it as a fallback for Gravatar. Example:</p>
 		<code>https://www.gravatar.com/avatar/<span class="value">EMAIL_MD5</span>?<span class="param">d</span>=<span class="value">https%3A%2F%2Fui-avatars.com%2Fapi%2F/Lasse+Rafn/128</span></code>
 
-		<p>Because of limitations in Gravatar, we must pass in the parameters as sub-directories, instead of query-parameters.</p>
+		<p>Because of limitations in Gravatar, we must pass in the parameters as sub-directories, instead of query-parameters. You should also consider urlencoding the name, in case it contains special characters. It's a limitation by Gravatar, not UI Avatars.</p>
 
 		The order is as follows:
 
