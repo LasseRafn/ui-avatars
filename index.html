@@ -119,7 +119,14 @@
 
 		<h2>With gravatar or similar</h2>
 		<p>A good use-case would be using it as a fallback for Gravatar. Example:</p>
-		<code>https://www.gravatar.com/avatar/<span class="value">EMAIL_MD5</span>?<span class="param">d</span>=<span class="value">https%3A%2F%2Fui-avatars.com%2Fapi%3Fname%3DJohn%2BDoe</span></code>
+		<code>https://www.gravatar.com/avatar/<span class="value">EMAIL_MD5</span>?<span class="param">d</span>=<span class="value">https%3A%2F%2Fui-avatars.com%2Fapi%2FBASE64_ENCODED_PARAMETERS</span></code>
+
+		<p>BASE64_ENCODED_PARAMETERS is required because gravatar does not support query parameters in default images. All you got do to is base64 encode your parameters like so:</p>
+
+		<code>base64_encode('name=Lasse+Rafn&length=3)</code>
+
+		<p>Usage example</p>
+		<code>https://www.gravatar.com/avatar/<span class="value">EMAIL_MD5</span>?<span class="param">d</span>=<span class="value">https%3A%2F%2Fui-avatars.com%2Fapi%2FbmFtZT1MYXNzZStSYWZu</span></code>
 
 		<h2>Retina</h2>
 		<p>I recommend using 1.5x or 2x sizes for your avatars, but keeping the img tag the original size, to ensure crisp avatars on high DPI screens.</p>
