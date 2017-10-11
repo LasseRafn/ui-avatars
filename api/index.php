@@ -38,6 +38,7 @@ $image = $avatar->name( $input->name )
 
 $image->save( __ROOT__ . "/cache/{$input->cacheKey}.png" );
 
-echo $image->stream( 'png', 100 );
+header('X-Accel-Redirect: ' . __ROOT__ .  "/cache/{$input->cacheKey}.png"); // If this part is causing you trouble, remove it and uncomment the following line:
+//echo $image->stream( 'png', 100 );
 
 exit;
