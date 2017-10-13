@@ -12,6 +12,7 @@ class Input
 	public $color;
 	public $cacheKey;
 	public $rounded;
+	public $uppercase;
 
 	private $hasQueryParameters = false;
 
@@ -20,6 +21,7 @@ class Input
 		'size',
 		'background',
 		'color',
+		'uppercase',
 		'length',
 		'font-size',
 		'rounded'
@@ -38,6 +40,7 @@ class Input
 		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
 
 		$this->getRounded();
+		$this->getUppercase();
 		$this->getInitials();
 		$this->fixInvalidInput();
 		$this->generateCacheKey();
@@ -71,14 +74,42 @@ class Input
 		}
 	}
 
+	private function getUppercase()
+	{
+		$uppercase = $_GET['uppercase'] ?? true;
+
+		if ( is_bool( $uppercase ) ) {
+			$this->uppercase = $uppercase;
+
+			return;
+		}
+
+		switch ( $uppercase ) {
+			case 'true':
+			case 1:
+			case '1':
+			case 'yes':
+			default:
+				$this->uppercase = true;
+				break;
+
+			case 'false':
+			case 0:
+			case '0':
+			case 'no':
+				$this->uppercase = false;
+				break;
+		}
+	}
+
 	private function getInitials()
 	{
-		$this->initials = ( new Initials )->length( $this->length )->generate( $this->name );
+		$this->initials = ( new Initials )->length( $this->length )->keepCase(!$this->uppercase)->generate( $this->name );
 	}
 
 	private function generateCacheKey()
 	{
-		$this->cacheKey = md5( "{$this->initials}-{$this->length}-{$this->size}-{$this->fontSize}-{$this->background}-{$this->color}-{$this->rounded}" );
+		$this->cacheKey = md5( "{$this->initials}-{$this->length}-{$this->size}-{$this->fontSize}-{$this->background}-{$this->color}-{$this->rounded}-{$this->uppercase}" );
 	}
 
 	private function fixInvalidInput()

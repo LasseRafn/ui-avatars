@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbb59852bfae3614c0de02fd4001d648",
+    "content-hash": "3fa6ce1cfa9c5b9f601422954b49c520",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -521,22 +521,22 @@
         },
         {
             "name": "lasserafn/php-initial-avatar-generator",
-            "version": "2.1.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LasseRafn/php-initial-avatar-generator.git",
-                "reference": "dfc7b016142e39e9fac32de4c54174f762532d04"
+                "reference": "e822024b34c7c2dd0d946febb3708d40dc1ae468"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LasseRafn/php-initial-avatar-generator/zipball/dfc7b016142e39e9fac32de4c54174f762532d04",
-                "reference": "dfc7b016142e39e9fac32de4c54174f762532d04",
+                "url": "https://api.github.com/repos/LasseRafn/php-initial-avatar-generator/zipball/e822024b34c7c2dd0d946febb3708d40dc1ae468",
+                "reference": "e822024b34c7c2dd0d946febb3708d40dc1ae468",
                 "shasum": ""
             },
             "require": {
                 "intervention/image": "^2.3",
                 "intervention/imagecache": "^2.3",
-                "lasserafn/php-initials": "^2.0",
+                "lasserafn/php-initials": "^2.20",
                 "lasserafn/php-string-script-language": "^0.1.0",
                 "php": "^5.6|^7.0|^7.1"
             },
@@ -566,20 +566,20 @@
                 "avatar",
                 "image"
             ],
-            "time": "2017-10-07T09:58:27+00:00"
+            "time": "2017-10-13T09:32:19+00:00"
         },
         {
             "name": "lasserafn/php-initials",
-            "version": "v2.16",
+            "version": "v2.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LasseRafn/php-initials.git",
-                "reference": "9c895d15693d9d66b58a17e3336dec6f7eea2456"
+                "reference": "ba4669e77552986998a9d1b34515a4e0c0f7acd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LasseRafn/php-initials/zipball/9c895d15693d9d66b58a17e3336dec6f7eea2456",
-                "reference": "9c895d15693d9d66b58a17e3336dec6f7eea2456",
+                "url": "https://api.github.com/repos/LasseRafn/php-initials/zipball/ba4669e77552986998a9d1b34515a4e0c0f7acd2",
+                "reference": "ba4669e77552986998a9d1b34515a4e0c0f7acd2",
                 "shasum": ""
             },
             "require": {
@@ -610,7 +610,7 @@
                 "Initials",
                 "php"
             ],
-            "time": "2017-06-14T09:18:19+00:00"
+            "time": "2017-10-13T08:59:38+00:00"
         },
         {
             "name": "lasserafn/php-string-script-language",

@@ -35,15 +35,16 @@ $image = $avatar->name( $input->name )
                 ->color( $input->color )
                 ->smooth()
                 ->autoFont()
+                ->keepCase( ! $input->uppercase )
                 ->rounded( $input->rounded )
                 ->generate();
 
 $image->save( __ROOT__ . "/cache/{$input->cacheKey}.png", 100 );
 
 if ( isset( $_GET['debug'] ) ) {
-	header( 'X-Accel-Redirect: ' . "/cache/{$input->cacheKey}.png" );
-} else {
 	echo $image->stream( 'png', 100 );
+} else {
+	header( 'X-Accel-Redirect: ' . "/cache/{$input->cacheKey}.png" );
 }
 
 exit;
