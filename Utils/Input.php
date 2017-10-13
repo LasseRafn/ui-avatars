@@ -21,10 +21,10 @@ class Input
 		'size',
 		'background',
 		'color',
-		'uppercase',
 		'length',
 		'font-size',
-		'rounded'
+		'rounded',
+		'uppercase',
 	];
 
 	public function __construct()
