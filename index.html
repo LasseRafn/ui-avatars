@@ -70,6 +70,7 @@
 			<h2 class="subtitle">Generate avatars with initials from names.</h2>
 			<p>UI Avatars has a simple-to-use API with no limiting or login. No usage tracking and no information is stored. The final images are cached, but nothing else. Just write name or surname, or both.</p>
 
+			<p><strong>NEW!</strong> Can now use <a href="#uppercase">?uppercase=false</a> to prevent uppercasing the name.</p>
 			<p><strong>NEW!</strong> <a href="#digitalocean-sponsor">Digitalocean sponsors us</a>, so we will be adding more regions.</p>
 			<p><strong>NEW!</strong> Faster responses with Nginx sendfile (Thanks to HSPDev).</p>
 			<p><strong>NEW!</strong> Set image quality to 100%, from 90%.</p>
@@ -118,6 +119,10 @@
 		<h3>Font Color (<code class="inline">color</code>)</h3>
 		<p>Hex color for the font, without the hash (#). Default: 222</p>
 		<code class="get" onclick="window.open('/api/?color=ff0000')">https://ui-avatars.com/api/?<span class="param">color</span>=<span class="value">ff0000</span></code>
+
+		<h3 id="uppercase">Uppercase (<code class="inline">uppercase</code>)</h3>
+		<p>Decide if the API should uppercase the name/initials. Default: true</p>
+		<code class="get" onclick="window.open('/api/?uppercase=false')">https://ui-avatars.com/api/?<span class="param">uppercase</span>=<span class="value">false</span></code>
 
 		<p>All settings above can be mixed together as you desire.</p>
 
