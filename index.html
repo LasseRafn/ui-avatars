@@ -6,188 +6,491 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, user-scalable=no, maximum-scale=1.0"/>
 
 	<meta name="author" content="Lasse Rafn">
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:site" content="@lasserafn" />
-	<meta name="twitter:creator" content="@lasserafn" />
-	<meta property="og:image" content="/assets/meta.png" />
-	<meta name="twitter:image" content="/assets/meta.png" />
-	<meta property="og:url" content="https://ui-avatars.com/" />
-	<meta property="og:title" content="Free API to generate avatars with initials - User Initial avatars" />
-	<meta name="twitter:title" content="Free API to generate avatars with initials - User Initial avatars" />
-	<meta name="description" content="Generate image avatars with user initials for free, just specify name. No limits or registration." />
-	<meta property="og:description" content="Generate image avatars with user initials for free, just specify name. No limits or registration." />
-	<meta name="twitter:description" content="Generate image avatars with user initials for free, just specify name. No limits or registration." />
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:site" content="@lasserafn"/>
+	<meta name="twitter:creator" content="@lasserafn"/>
+	<meta property="og:image" content="/assets/meta.png"/>
+	<meta name="twitter:image" content="/assets/meta.png"/>
+	<meta property="og:url" content="https://ui-avatars.com/"/>
+	<meta property="og:title" content="Free API to generate avatars with initials - User Initial avatars"/>
+	<meta name="twitter:title" content="Free API to generate avatars with initials - User Initial avatars"/>
+	<meta name="description" content="Generate image avatars with user initials for free, just specify name. No limits or registration."/>
+	<meta property="og:description" content="Generate image avatars with user initials for free, just specify name. No limits or registration."/>
+	<meta name="twitter:description" content="Generate image avatars with user initials for free, just specify name. No limits or registration."/>
 
 	<title>User Initial avatars</title>
 
 	<style>
-		button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
-		* { max-width: 100%; box-sizing: border-box }
-		body {font: 14px/1.5 'Open Sans', sans-serif; color: #222; background: #fff; margin: 0; padding: 0}
-		.container {width: 600px; margin: 2em auto; padding: 0 15px}
+		button, hr, input {
+			overflow: visible
+		}
 
-		.header {}
-		.footer {font-size: 0.875em; line-height: 1.2; text-align: center}
-		.promo {margin: 2em 0 0; text-align: center}
+		audio, canvas, progress, video {
+			display: inline-block
+		}
 
-		h1 {font-size: 3em; margin: 0}
-		h2 {font-size: 2em; margin: 2em 0 0}
-		h2.subtitle {font-weight: normal; font-size: 1.25em; margin: 0.25em 0 0}
-		h3 {font-weight: 600; font-size: 1.125em; margin: 1em 0 0.5em}
+		progress, sub, sup {
+			vertical-align: baseline
+		}
 
-		hr {border: none; background: #d8d8d8; height: 1px; margin: 2em 0}
+		[type=checkbox], [type=radio], legend {
+			box-sizing: border-box;
+			padding: 0
+		}
 
-		a, a:visited {color: #568bbf}
+		html {
+			line-height: 1.15;
+			-ms-text-size-adjust: 100%;
+			-webkit-text-size-adjust: 100%
+		}
 
-		code {background: #f7f9fb; display: block; font-size: 13px; margin-bottom: 2em; padding: 1em}
-		code.inline {display: inline-block; padding: .25em; margin: 0}
-		code.get:before {color: #568bbf; content: 'GET '}
-		code.get:hover {cursor: pointer; background: #f2f4fd}
-		code.get:hover:after {color: #568bbf; content: ' TRY'; float: right}
-		code span.param {color: #A87847}
-		code span.value {color: #6E9C40}
+		body {
+			margin: 0
+		}
+
+		article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
+			display: block
+		}
+
+		h1 {
+			font-size: 2em;
+			margin: .67em 0
+		}
+
+		figure {
+			margin: 1em 40px
+		}
+
+		hr {
+			box-sizing: content-box;
+			height: 0
+		}
+
+		code, kbd, pre, samp {
+			font-family: monospace, monospace;
+			font-size: 1em
+		}
+
+		a {
+			background-color: transparent;
+			-webkit-text-decoration-skip: objects
+		}
+
+		abbr[title] {
+			border-bottom: none;
+			text-decoration: underline;
+			text-decoration: underline dotted
+		}
+
+		b, strong {
+			font-weight: bolder
+		}
+
+		dfn {
+			font-style: italic
+		}
+
+		mark {
+			background-color: #ff0;
+			color: #000
+		}
+
+		small {
+			font-size: 80%
+		}
+
+		sub, sup {
+			font-size: 75%;
+			line-height: 0;
+			position: relative
+		}
+
+		sub {
+			bottom: -.25em
+		}
+
+		sup {
+			top: -.5em
+		}
+
+		audio:not([controls]) {
+			display: none;
+			height: 0
+		}
+
+		img {
+			border-style: none
+		}
+
+		svg:not(:root) {
+			overflow: hidden
+		}
+
+		button, input, optgroup, select, textarea {
+			font-family: sans-serif;
+			font-size: 100%;
+			line-height: 1.15;
+			margin: 0
+		}
+
+		button, select {
+			text-transform: none
+		}
+
+		[type=reset], [type=submit], button, html [type=button] {
+			-webkit-appearance: button
+		}
+
+		[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+			border-style: none;
+			padding: 0
+		}
+
+		[type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring, button:-moz-focusring {
+			outline: ButtonText dotted 1px
+		}
+
+		fieldset {
+			padding: .35em .75em .625em
+		}
+
+		legend {
+			color: inherit;
+			display: table;
+			max-width: 100%;
+			white-space: normal
+		}
+
+		textarea {
+			overflow: auto
+		}
+
+		[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+			height: auto
+		}
+
+		[type=search] {
+			-webkit-appearance: textfield;
+			outline-offset: -2px
+		}
+
+		[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+			-webkit-appearance: none
+		}
+
+		::-webkit-file-upload-button {
+			-webkit-appearance: button;
+			font: inherit
+		}
+
+		summary {
+			display: list-item
+		}
+
+		[hidden], template {
+			display: none
+		}
+
+		* {
+			max-width: 100%;
+			box-sizing: border-box
+		}
+
+		body {
+			font: 14px/1.5 'Open Sans', sans-serif;
+			color: #222;
+			background: #fff;
+			margin: 0;
+			padding: 0
+		}
+
+		.container {
+			width: 600px;
+			margin: 2em auto;
+			padding: 0 15px
+		}
+
+		.header {
+		}
+
+		.footer {
+			font-size: 0.875em;
+			line-height: 1.2;
+			text-align: center
+		}
+
+		.promo {
+			margin: 2em 0 0;
+			text-align: center
+		}
+
+		h1 {
+			font-size: 3em;
+			margin: 0
+		}
+
+		h2 {
+			font-size: 2em;
+			margin: 2em 0 0
+		}
+
+		h2.subtitle {
+			font-weight: normal;
+			font-size: 1.25em;
+			margin: 0.25em 0 0
+		}
+
+		h3 {
+			font-weight: 600;
+			font-size: 1.125em;
+			margin: 1em 0 0.5em
+		}
+
+		hr {
+			border: none;
+			background: #d8d8d8;
+			height: 1px;
+			margin: 2em 0
+		}
+
+		a, a:visited {
+			color: #568bbf
+		}
+
+		code {
+			background: #f7f9fb;
+			display: block;
+			font-size: 13px;
+			margin-bottom: 2em;
+			padding: 1em
+		}
+
+		code.inline {
+			display: inline-block;
+			padding: .25em;
+			margin: 0
+		}
+
+		code.get:before {
+			color: #568bbf;
+			content: 'GET '
+		}
+
+		code.get:hover {
+			cursor: pointer;
+			background: #f2f4fd
+		}
+
+		code.get:hover:after {
+			color: #568bbf;
+			content: ' TRY';
+			float: right
+		}
+
+		code span.param {
+			color: #A87847
+		}
+
+		code span.value {
+			color: #6E9C40
+		}
 
 		@media all and (max-width: 600px) {
-			code.get:hover:after {display: none}
+			code.get:hover:after {
+				display: none
+			}
 		}
 	</style>
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107354352-1"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments)};
+
+		function gtag() {
+			dataLayer.push(arguments)
+		};
 		gtag('js', new Date());
 
 		gtag('config', 'UA-107354352-1');
 	</script>
 </head>
 <body>
-<a href="https://github.com/LasseRafn/ui-avatars" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<a href="https://github.com/LasseRafn/ui-avatars" class="github-corner" aria-label="View source on Github">
+	<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+		<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+		<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+			  fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+		<path
+			d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+			fill="currentColor" class="octo-body"></path>
+	</svg>
+</a>
+<style>.github-corner:hover .octo-arm {
+	animation: octocat-wave 560ms ease-in-out
+}
 
-	<div class="container">
-		<div class="header">
-			<h1>UI Avatars</h1>
-			<h2 class="subtitle">Generate avatars with initials from names.</h2>
-			<p>UI Avatars has a simple-to-use API with no limiting or login. No usage tracking and no information is stored. The final images are cached, but nothing else. Just write name or surname, or both.</p>
-			
-			<div class="promo">
-				<img src="/assets/promo.png" width="651" alt="Example avatars" />
-			</div>
-		</div>
-		
-		<div style="text-align: center; margin-top: 16px;">
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- UI AVatars -->
-			<ins class="adsbygoogle"
-			     style="display:block"
-			     data-ad-client="ca-pub-6206742929853545"
-			     data-ad-slot="3101365126"
-			     data-ad-format="auto"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-		</div>
+@keyframes octocat-wave {
+	0%, 100% {
+		transform: rotate(0)
+	}
+	20%, 60% {
+		transform: rotate(-25deg)
+	}
+	40%, 80% {
+		transform: rotate(10deg)
+	}
+}
 
-		<h2>Usage</h2>
+@media (max-width: 500px) {
+	.github-corner:hover .octo-arm {
+		animation: none
+	}
 
-		<p>All requests returns a image stream to be used direcly in a <code class="inline">&lt;img/&gt;</code> tag.</p>
+	.github-corner .octo-arm {
+		animation: octocat-wave 560ms ease-in-out
+	}
+}</style>
 
-		<h3>Generate a avatar with default settings, for user "John Doe".</h3>
-		<code class="get" onclick="window.open('/api/?name=John+Doe')">https://ui-avatars.com/api/?<span class="param">name</span>=<span class="value">John+Doe</span></code>
+<div class="container">
+	<div class="header">
+		<h1>UI Avatars</h1>
+		<h2 class="subtitle">Generate avatars with initials from names.</h2>
+		<p>UI Avatars has a simple-to-use API with no limiting or login. No usage tracking and no information is stored. The final images are cached, but nothing else. Just write name or surname, or both.</p>
 
-		<h3>Generate a blue avatar</h3>
-		<code class="get" onclick="window.open('/api/?background=0D8ABC&color=fff')">https://ui-avatars.com/api/?<span class="param">background</span>=<span class="value">0D8ABC</span>&<span class="param">color</span>=<span class="value">fff</span></code>
+		<p><strong>NEW!</strong> Added another server in Bangalore, India!</p>
+		<p><strong>NEW!</strong> Aggregated monitoring <a href="#privacy">*</a> of servers will be displayed here.</p>
 
-		<h2>Settings</h2>
-
-		<h3>Image Size (<code class="inline">size</code>)</h3>
-		<p>Avatar image size in pixels. Between: 16 and 256. Default: 64</p>
-		<code class="get" onclick="window.open('/api/?size=128')">https://ui-avatars.com/api/?<span class="param">size</span>=<span class="value">128</span></code>
-
-		<h3>Font Size (<code class="inline">font-size</code>)</h3>
-		<p>Font size in percentage of <code class="inline">size</code>. Between 0.1 and 1. Default: 0.5</p>
-		<code class="get" onclick="window.open('/api/?font-size=0.33')">https://ui-avatars.com/api/?<span class="param">font-size</span>=<span class="value">0.33</span></code>
-
-		<h3>Initial Characters (<code class="inline">length</code>)</h3>
-		<p>Length of the generated initials. Default: 2</p>
-		<code class="get" onclick="window.open('/api/?length=1')">https://ui-avatars.com/api/?<span class="param">length</span>=<span class="value">1</span></code>
-
-		<h3>Name (<code class="inline">name</code>)</h3>
-		<p>The name used to generate initials. You can specify the initals yourself as well. Default: John Doe</p>
-		<code class="get" onclick="window.open('/api/?name=Elon+Musk')">https://ui-avatars.com/api/?<span class="param">name</span>=<span class="value">Elon+Musk</span></code>
-
-		<h3>Rounded Image (<code class="inline">rounded</code>)</h3>
-		<p>Boolean specifying if the returned image should be a circle. Default: false</p>
-		<code class="get" onclick="window.open('/api/?rounded=true')">https://ui-avatars.com/api/?<span class="param">rounded</span>=<span class="value">true</span></code>
-
-		<h3>Background Color (<code class="inline">background</code>)</h3>
-		<p>Hex color for the image background, without the hash (#). Default: ddd</p>
-		<code class="get" onclick="window.open('/api/?background=a0a0a0')">https://ui-avatars.com/api/?<span class="param">background</span>=<span class="value">a0a0a0</span></code>
-
-		<h3>Font Color (<code class="inline">color</code>)</h3>
-		<p>Hex color for the font, without the hash (#). Default: 222</p>
-		<code class="get" onclick="window.open('/api/?color=ff0000')">https://ui-avatars.com/api/?<span class="param">color</span>=<span class="value">ff0000</span></code>
-
-		<h3 id="uppercase">Uppercase (<code class="inline">uppercase</code>)</h3>
-		<p>Decide if the API should uppercase the name/initials. Default: true</p>
-		<code class="get" onclick="window.open('/api/?uppercase=false&name=different+Case')">https://ui-avatars.com/api/?<span class="param">uppercase</span>=<span class="value">false</span>&<span class="param">name</span>=<span class="value">different+Case</span></code>
-
-		<p>All settings above can be mixed together as you desire.</p>
-
-		<h2>With gravatar or similar</h2>
-		<p>A good use-case would be using it as a fallback for Gravatar. Example:</p>
-		<code>https://www.gravatar.com/avatar/<span class="value">EMAIL_MD5</span>?<span class="param">d</span>=<span class="value">https%3A%2F%2Fui-avatars.com%2Fapi%2F/Lasse+Rafn/128</span></code>
-
-		<p>Because of limitations in Gravatar, we must pass in the parameters as sub-directories, instead of query-parameters. You should also consider urlencoding the name, in case it contains special characters. It's a limitation by Gravatar, not UI Avatars.</p>
-
-		The order is as follows:
-
-		<ul>
-			<li>name</li>
-			<li>size</li>
-			<li>background</li>
-			<li>color</li>
-			<li>length</li>
-			<li>font-size</li>
-			<li>rounded</li>
-			<li>uppercase</li>
-		</ul>
-
-		<h2>Retina</h2>
-		<p>I recommend using 1.5x or 2x sizes for your avatars, but keeping the img tag the original size, to ensure crisp avatars on high DPI screens.</p>
-
-		<h2 id="language-script-support">Language/Script support</h2>
-		<p>I have added support for some unicode scripts/languages that are not supported by the typical fonts. Current support:</p>
-		<ul>
-			<li>Arabic</li>
-			<li>Armenian</li>
-			<li>Bengali</li>
-			<li>Georgian</li>
-			<li>Hebrew</li>
-			<li>Chinese</li>
-			<li>Japanese</li>
-			<li>Mongolian</li>
-			<li>Thai</li>
-			<li>Tibetan</li>
-		</ul>
-
-		<h2>Wordpress plugin</h2>
-		<p>It has Wordpress plugin! As you can understand you can also use the <a href="https://wordpress.org/plugins/wp-initials-avatar/" rel="noopener">Wordpress plugin</a>, which is also free.</p>
-
-		<h2>Regions</h2>
-		<p>Servers are setup in the following countries/states:</p>
-		<ul>
-			<li>Frankfurt</li>
-			<li>San Francisco</li>
-		</ul>
-	
-		<hr>
-	
-		<div class="footer">
-			<p>Made by <a href="https://twitter.com/lasserafn" rel="noopener" target="_blank">Lasse Rafn</a></p>
-			<p><a href="https://github.com/LasseRafn/ui-avatars" rel="noopener" target="_blank">Code on Github</a></p>
+		<div class="promo">
+			<img src="/assets/promo.png" width="651" alt="Example avatars"/>
 		</div>
 	</div>
-	<!-- Landing inspired by http://fixer.io -->
+
+	<div style="text-align: center; margin-top: 16px;">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- UI AVatars -->
+		<ins class="adsbygoogle"
+			 style="display:block"
+			 data-ad-client="ca-pub-6206742929853545"
+			 data-ad-slot="3101365126"
+			 data-ad-format="auto"></ins>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+	<h2>Usage</h2>
+
+	<p>All requests returns a image stream to be used direcly in a <code class="inline">&lt;img/&gt;</code> tag.</p>
+
+	<h3>Generate a avatar with default settings, for user "John Doe".</h3>
+	<code class="get" onclick="window.open('/api/?name=John+Doe')">https://ui-avatars.com/api/?<span class="param">name</span>=<span class="value">John+Doe</span></code>
+
+	<h3>Generate a blue avatar</h3>
+	<code class="get" onclick="window.open('/api/?background=0D8ABC&color=fff')">https://ui-avatars.com/api/?<span class="param">background</span>=<span class="value">0D8ABC</span>&<span class="param">color</span>=<span
+		class="value">fff</span></code>
+
+	<h2>Settings</h2>
+
+	<h3>Image Size (<code class="inline">size</code>)</h3>
+	<p>Avatar image size in pixels. Between: 16 and 256. Default: 64</p>
+	<code class="get" onclick="window.open('/api/?size=128')">https://ui-avatars.com/api/?<span class="param">size</span>=<span class="value">128</span></code>
+
+	<h3>Font Size (<code class="inline">font-size</code>)</h3>
+	<p>Font size in percentage of <code class="inline">size</code>. Between 0.1 and 1. Default: 0.5</p>
+	<code class="get" onclick="window.open('/api/?font-size=0.33')">https://ui-avatars.com/api/?<span class="param">font-size</span>=<span class="value">0.33</span></code>
+
+	<h3>Initial Characters (<code class="inline">length</code>)</h3>
+	<p>Length of the generated initials. Default: 2</p>
+	<code class="get" onclick="window.open('/api/?length=1')">https://ui-avatars.com/api/?<span class="param">length</span>=<span class="value">1</span></code>
+
+	<h3>Name (<code class="inline">name</code>)</h3>
+	<p>The name used to generate initials. You can specify the initals yourself as well. Default: John Doe</p>
+	<code class="get" onclick="window.open('/api/?name=Elon+Musk')">https://ui-avatars.com/api/?<span class="param">name</span>=<span class="value">Elon+Musk</span></code>
+
+	<h3>Rounded Image (<code class="inline">rounded</code>)</h3>
+	<p>Boolean specifying if the returned image should be a circle. Default: false</p>
+	<code class="get" onclick="window.open('/api/?rounded=true')">https://ui-avatars.com/api/?<span class="param">rounded</span>=<span class="value">true</span></code>
+
+	<h3>Background Color (<code class="inline">background</code>)</h3>
+	<p>Hex color for the image background, without the hash (#). Default: ddd</p>
+	<code class="get" onclick="window.open('/api/?background=a0a0a0')">https://ui-avatars.com/api/?<span class="param">background</span>=<span class="value">a0a0a0</span></code>
+
+	<h3>Font Color (<code class="inline">color</code>)</h3>
+	<p>Hex color for the font, without the hash (#). Default: 222</p>
+	<code class="get" onclick="window.open('/api/?color=ff0000')">https://ui-avatars.com/api/?<span class="param">color</span>=<span class="value">ff0000</span></code>
+
+	<h3 id="uppercase">Uppercase (<code class="inline">uppercase</code>)</h3>
+	<p>Decide if the API should uppercase the name/initials. Default: true</p>
+	<code class="get" onclick="window.open('/api/?uppercase=false&name=different+Case')">https://ui-avatars.com/api/?<span class="param">uppercase</span>=<span class="value">false</span>&<span
+		class="param">name</span>=<span class="value">different+Case</span></code>
+
+	<p>All settings above can be mixed together as you desire.</p>
+
+	<h2>With gravatar or similar</h2>
+	<p>A good use-case would be using it as a fallback for Gravatar. Example:</p>
+	<code>https://www.gravatar.com/avatar/<span class="value">EMAIL_MD5</span>?<span class="param">d</span>=<span class="value">https%3A%2F%2Fui-avatars.com%2Fapi%2F/Lasse+Rafn/128</span></code>
+
+	<p>Because of limitations in Gravatar, we must pass in the parameters as sub-directories, instead of query-parameters. You should also consider urlencoding the name, in case it contains special characters. It's a
+		limitation by Gravatar, not UI Avatars.</p>
+
+	The order is as follows:
+
+	<ul>
+		<li>name</li>
+		<li>size</li>
+		<li>background</li>
+		<li>color</li>
+		<li>length</li>
+		<li>font-size</li>
+		<li>rounded</li>
+		<li>uppercase</li>
+	</ul>
+
+	<h2>Retina</h2>
+	<p>I recommend using 1.5x or 2x sizes for your avatars, but keeping the img tag the original size, to ensure crisp avatars on high DPI screens.</p>
+
+	<h2 id="language-script-support">Language/Script support</h2>
+	<p>I have added support for some unicode scripts/languages that are not supported by the typical fonts. Current support:</p>
+	<ul>
+		<li>Arabic</li>
+		<li>Armenian</li>
+		<li>Bengali</li>
+		<li>Georgian</li>
+		<li>Hebrew</li>
+		<li>Chinese</li>
+		<li>Japanese</li>
+		<li>Mongolian</li>
+		<li>Thai</li>
+		<li>Tibetan</li>
+	</ul>
+
+	<h2>Wordpress plugin</h2>
+	<p>It has Wordpress plugin! If you have a Wordpress site, you can use the <a href="https://wordpress.org/plugins/wp-initials-avatar/" rel="noopener">Wordpress plugin</a>, which is also free.</p>
+
+	<h2>Regions</h2>
+	<p>Servers are setup in the following countries/cities:</p>
+	<ul>
+		<li>Frankfurt, Germany</li>
+		<li>San Francisco, CA, USA</li>
+		<li>Bangalore, India <span style="padding: 3px 6px; background: #e7e9eb; border-radius: 2px; font-size: 0.8em; font-weight: bold;">NEW!</span></li>
+	</ul>
+
+	<h2 id="privacy">Privacy and Monitoring</h2>
+	<p>Now that the servers are being monitored, I want to clear up what is monitored and stored. But don't worry, the sentence above "No usage tracking and no information is stored" will always be honored.</p>
+	<p>To aggregate statistics such as avg. response time, number of requests and similar - NGINX access logs has been enabled, with a config that won't store request data. The format is as follows:</p>
+
+	<code>log_format aggregate '[$time_local] $status $body_bytes_sent $request_time $upstream_response_time';</code>
+
+	<p>These log files are parsed to aggregate the data, and the output (count, avg. response time) is sent to another service which will store it. The log file is then truncated.</p>
+	<p>The actual requests are <strong>never</strong> stored.</p>
+
+	<hr>
+
+	<div class="footer">
+		<p>Made by <a href="https://twitter.com/lasserafn" rel="noopener" target="_blank">Lasse Rafn</a></p>
+		<p><a href="https://github.com/LasseRafn/ui-avatars" rel="noopener" target="_blank">Code on Github</a></p>
+	</div>
+</div>
+<!-- Landing inspired by http://fixer.io -->
 </body>
 </html>
