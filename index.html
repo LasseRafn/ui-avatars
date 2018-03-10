@@ -357,7 +357,6 @@
 		<h2 class="subtitle">Generate avatars with initials from names.</h2>
 		<p>UI Avatars has a simple-to-use API with no limiting or login. No usage tracking and no information is stored. The final images are cached, but nothing else. Just write name or surname, or both.</p>
 
-		<p><strong>NEW!</strong> Added another server in Bangalore, India!</p>
 		<p><strong>NEW!</strong> Aggregated monitoring <a href="#privacy">*</a> of servers will be displayed here.</p>
 
 		<div class="promo">
@@ -472,7 +471,7 @@
 	<ul>
 		<li>Frankfurt, Germany</li>
 		<li>San Francisco, CA, USA</li>
-		<li>Bangalore, India <span style="padding: 3px 6px; background: #e7e9eb; border-radius: 2px; font-size: 0.8em; font-weight: bold;">NEW!</span></li>
+		<!--<li>Bangalore, India <span style="padding: 3px 6px; background: #e7e9eb; border-radius: 2px; font-size: 0.8em; font-weight: bold;">NEW!</span></li>-->
 	</ul>
 
 	<h2 id="privacy">Privacy and Monitoring</h2>
@@ -481,8 +480,7 @@
 
 	<code>log_format aggregate '[$time_local] $status $body_bytes_sent $request_time $upstream_response_time';</code>
 
-	<p>These log files are parsed to aggregate the data, and the output (count, avg. response time) is sent to another service which will store it. The log file is then truncated.</p>
-	<p>The actual requests are <strong>never</strong> stored.</p>
+	<p>These log files are parsed to aggregate the data, and the output (count, avg. response time) is sent to another service which will store it. The log file is then truncated. The actual requests are <strong>never</strong> stored.</p>
 
 	<hr>
 
@@ -491,6 +489,5 @@
 		<p><a href="https://github.com/LasseRafn/ui-avatars" rel="noopener" target="_blank">Code on Github</a></p>
 	</div>
 </div>
-<!-- Landing inspired by http://fixer.io -->
 </body>
 </html>
