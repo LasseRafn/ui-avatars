@@ -13,10 +13,11 @@ class Input
 	public $cacheKey;
 	public $rounded;
 	public $uppercase;
+	public $initials;
 
 	private $hasQueryParameters = false;
 
-	protected static $indexes = [
+	private static $indexes = [
 		'name',
 		'size',
 		'background',
@@ -38,10 +39,10 @@ class Input
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
 		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
 
-		$this->rounded = $this->getRounded();
+		$this->rounded   = $this->getRounded();
 		$this->uppercase = $this->getUppercase();
-		$this->initials = $this->getInitials();
-		$this->cacheKey = $this->generateCacheKey();
+		$this->initials  = $this->getInitials();
+		$this->cacheKey  = $this->generateCacheKey();
 		$this->fixInvalidInput();
 	}
 
@@ -85,7 +86,7 @@ class Input
 
 	private function detectQueryParameters() {
 		foreach ( $_GET as $item => $value ) {
-			if ( in_array( $item, self::$indexes, true ) ) {
+			if ( \in_array( $item, self::$indexes, true ) ) {
 				$this->hasQueryParameters = true;
 
 				return true;
@@ -111,5 +112,7 @@ class Input
 
 			$_GET[ self::$indexes[ $index ] ] = urldecode( $value );
 		}
+
+		return true;
 	}
 }
