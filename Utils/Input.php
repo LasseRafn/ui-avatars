@@ -50,8 +50,7 @@ class Input
 	}
 
 	private function getUppercase() {
-
-		$this->rounded = filter_var( $_GET['uppercase'] ?? true, FILTER_VALIDATE_BOOLEAN );
+		$this->uppercase = filter_var( $_GET['uppercase'] ?? true, FILTER_VALIDATE_BOOLEAN );
 	}
 
 	private function getInitials() {
