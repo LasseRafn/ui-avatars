@@ -38,28 +38,27 @@ class Input
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
 		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
 
-		$this->getRounded();
-		$this->getUppercase();
-		$this->getInitials();
+		$this->rounded = $this->getRounded();
+		$this->uppercase = $this->getUppercase();
+		$this->initials = $this->getInitials();
+		$this->cacheKey = $this->generateCacheKey();
 		$this->fixInvalidInput();
-		$this->generateCacheKey();
 	}
 
 	private function getRounded() {
-		$this->rounded = filter_var( $_GET['rounded'] ?? false, FILTER_VALIDATE_BOOLEAN );
+		return filter_var( $_GET['rounded'] ?? false, FILTER_VALIDATE_BOOLEAN );
 	}
 
 	private function getUppercase() {
-
-		$this->rounded = filter_var( $_GET['uppercase'] ?? true, FILTER_VALIDATE_BOOLEAN );
+		return filter_var( $_GET['uppercase'] ?? true, FILTER_VALIDATE_BOOLEAN );
 	}
 
 	private function getInitials() {
-		$this->initials = ( new Initials )->length( $this->length )->keepCase( ! $this->uppercase )->generate( $this->name );
+		return ( new Initials )->length( $this->length )->keepCase( ! $this->uppercase )->generate( $this->name );
 	}
 
 	private function generateCacheKey() {
-		$this->cacheKey = md5( "{$this->initials}-{$this->length}-{$this->size}-{$this->fontSize}-{$this->background}-{$this->color}-{$this->rounded}-{$this->uppercase}" );
+		return md5( "{$this->initials}-{$this->length}-{$this->size}-{$this->fontSize}-{$this->background}-{$this->color}-{$this->rounded}-{$this->uppercase}" );
 	}
 
 	private function fixInvalidInput() {
