@@ -130,8 +130,8 @@ class Input
 			$this->size = 16;
 		}
 
-		if ( $this->size > 256 ) {
-			$this->size = 256;
+		if ( $this->size > 512 ) {
+			$this->size = 512;
 		}
 	}
 
