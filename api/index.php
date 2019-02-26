@@ -36,8 +36,13 @@ $image = $avatar->name( $input->name )
                 ->smooth()
                 ->autoFont()
                 ->keepCase( ! $input->uppercase )
-                ->rounded( $input->rounded )
-                ->generate();
+                ->rounded( $input->rounded );
+
+if ( $input->bold ) {
+	$image = $image->preferBold();
+}
+
+$image = $image->generate();
 
 $image->save( __ROOT__ . "/cache/{$input->cacheKey}.png", 100 );
 

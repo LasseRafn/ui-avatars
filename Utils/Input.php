@@ -14,6 +14,7 @@ class Input
 	public $rounded;
 	public $uppercase;
 	public $initials;
+	public $bold;
 
 	private $hasQueryParameters = false;
 
@@ -26,6 +27,7 @@ class Input
 		'font-size',
 		'rounded',
 		'uppercase',
+		'bold',
 	];
 
 	public function __construct() {
@@ -39,6 +41,7 @@ class Input
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
 		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
 
+		$this->bold   = $this->getBold();
 		$this->rounded   = $this->getRounded();
 		$this->uppercase = $this->getUppercase();
 		$this->initials  = $this->getInitials();
@@ -50,6 +53,10 @@ class Input
 		return filter_var( $_GET['rounded'] ?? false, FILTER_VALIDATE_BOOLEAN );
 	}
 
+	private function getBold() {
+		return filter_var( $_GET['bold'] ?? false, FILTER_VALIDATE_BOOLEAN );
+	}
+
 	private function getUppercase() {
 		return filter_var( $_GET['uppercase'] ?? true, FILTER_VALIDATE_BOOLEAN );
 	}
@@ -59,7 +66,7 @@ class Input
 	}
 
 	private function generateCacheKey() {
-		return md5( "{$this->initials}-{$this->length}-{$this->size}-{$this->fontSize}-{$this->background}-{$this->color}-{$this->rounded}-{$this->uppercase}" );
+		return md5( "{$this->initials}-{$this->length}-{$this->size}-{$this->fontSize}-{$this->background}-{$this->color}-{$this->rounded}-{$this->uppercase}-{$this->bold}" );
 	}
 
 	private function fixInvalidInput() {
