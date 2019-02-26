@@ -23,9 +23,9 @@ if ( ! isset( $_GET['no-cache'] ) && file_exists( __ROOT__ . "/cache/{$input->ca
 	}
 
 	exit;
-} else {
-	header( 'Expires: ' . gmdate( 'D, d M Y H:i:s \G\M\T', time() + 172800 ) );
 }
+
+header( 'Expires: ' . gmdate( 'D, d M Y H:i:s \G\M\T', time() + 172800 ) );
 
 $image = $avatar->name( $input->name )
                 ->length( $input->length )

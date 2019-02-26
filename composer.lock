@@ -145,16 +145,16 @@
         },
         {
             "name": "lasserafn/php-initial-avatar-generator",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LasseRafn/php-initial-avatar-generator.git",
-                "reference": "cf74388dfd23e00bea5f6b57d59db5bf7532d117"
+                "reference": "50406a7622a9a67ac0c78acfc4bd60ce51162d49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LasseRafn/php-initial-avatar-generator/zipball/cf74388dfd23e00bea5f6b57d59db5bf7532d117",
-                "reference": "cf74388dfd23e00bea5f6b57d59db5bf7532d117",
+                "url": "https://api.github.com/repos/LasseRafn/php-initial-avatar-generator/zipball/50406a7622a9a67ac0c78acfc4bd60ce51162d49",
+                "reference": "50406a7622a9a67ac0c78acfc4bd60ce51162d49",
                 "shasum": ""
             },
             "require": {
@@ -192,7 +192,7 @@
                 "avatar",
                 "image"
             ],
-            "time": "2019-02-26T18:41:06+00:00"
+            "time": "2019-02-26T18:53:06+00:00"
         },
         {
             "name": "lasserafn/php-initials",

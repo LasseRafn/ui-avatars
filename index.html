@@ -51,7 +51,7 @@
 		<h2 class="subtitle">Generate avatars with initials from names.</h2>
 		<p>UI Avatars has a simple-to-use API with no limiting or login. No usage tracking and no information is stored. The final images are cached, but nothing else. Just write name or surname, or both.</p>
 
-		<p><strong>NEW!</strong> Font weight option</p>
+		<p><strong>NEW!</strong> Bold font weight option</p>
 		<p><strong>NEW!</strong> There is now a official <a href="https://github.com/Rackbeat/laravel-ui-avatars" target="_blank">Laravel Wrapper</a></p>
 
 		<div class="promo">
@@ -116,6 +116,10 @@
 	<p>Boolean specifying if the returned image should be a circle. Default: false</p>
 	<code class="get" onclick="window.open('/api/?rounded=true')">https://ui-avatars.com/api/?<span class="param">rounded</span>=<span class="value">true</span></code>
 
+	<h3>Bold (<code class="inline">bold</code>)</h3>
+	<p>Boolean specifying if the returned letters should use a bold font. Default: false</p>
+	<code class="get" onclick="window.open('/api/?bold=true')">https://ui-avatars.com/api/?<span class="param">bold</span>=<span class="value">true</span></code>
+
 	<h3>Background Color (<code class="inline">background</code>)</h3>
 	<p>Hex color for the image background, without the hash (#). Default: ddd</p>
 	<code class="get" onclick="window.open('/api/?background=a0a0a0')">https://ui-avatars.com/api/?<span class="param">background</span>=<span class="value">a0a0a0</span></code>
@@ -149,6 +153,7 @@
 		<li>font-size</li>
 		<li>rounded</li>
 		<li>uppercase</li>
+		<li>bold</li>
 	</ul>
 
 	<h2>Retina</h2>
