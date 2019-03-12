@@ -8,7 +8,12 @@ require_once __ROOT__ . '/vendor/autoload.php';
 
 header( 'Content-type: image/png' );
 header( 'Pragma: public' );
-header( 'Cache-Control: max-age=172800' );
+header( 'Access-Control-Allow-Origin : *' );
+header( 'Access-Control-Allow-Credentials : true' );
+header( 'Access-Control-Allow-Methods : GET, OPTIONS' );
+header( 'Access-Control-Max-Age : 3600' );
+header( 'Access-Control-Allow-Headers : Content-Type, Accept, X-Requested-With, remember-me' );
+header('Cache-Control: max-age=172800' );
 
 $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar();
 $input  = new \Utils\Input;
