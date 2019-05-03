@@ -18,6 +18,8 @@ class Input
 
 	private $hasQueryParameters = false;
 
+	private $textColorRandom = '#222';
+
 	private static $indexes = [
 		'name',
 		'size',
@@ -36,17 +38,35 @@ class Input
 
 		$this->name       = $_GET['name'] ?? 'John Doe';
 		$this->size       = (int) ( $_GET['size'] ?? 64 );
-		$this->background = $_GET['background'] ?? '#ddd';
-		$this->color      = $_GET['color'] ?? '#222';
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
 		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
 
-		$this->bold   = $this->getBold();
+		$this->background = $this->getBackground();
+		$this->color      = $_GET['color'] ?? $this->textColorRandom;
+
+		$this->bold      = $this->getBold();
 		$this->rounded   = $this->getRounded();
 		$this->uppercase = $this->getUppercase();
 		$this->initials  = $this->getInitials();
 		$this->cacheKey  = $this->generateCacheKey();
 		$this->fixInvalidInput();
+	}
+
+	private function setTextColor($str) {
+		$this->textColorRandom = $str;
+	}
+
+	private function getBackground(){
+		if ( $_GET['background'] === 'random' ){
+			$colorsJson = file_get_contents(__DIR__.'/colors.json');
+			$colorsArray = json_decode($colorsJson, true);	
+			$randIndex = array_rand($colorsArray);
+			$randomColor = $colorsArray[$randIndex];
+			$this->setTextColor($randomColor["t"]);
+			return $randomColor["b"];
+		}else{
+			return '#ddd';
+		}
 	}
 
 	private function getRounded() {
