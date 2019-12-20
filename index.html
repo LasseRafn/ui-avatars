@@ -186,17 +186,12 @@
 	</ul>
 
 	<h2 id="privacy">Privacy and Monitoring</h2>
-	<p>Now that the servers are being monitored, I want to clear up what is monitored and stored. But don't worry, the sentence above "No usage tracking and no information is stored" will always be honored.</p>
-	<p>To aggregate statistics such as avg. response time, number of requests and similar - NGINX access logs has been enabled, with a config that won't store request data. The format is as follows:</p>
-
-	<code>log_format aggregate '[$time_local] $status $body_bytes_sent $request_time $upstream_response_time';</code>
-
-	<p>These log files are parsed to aggregate the data, and the output (count, avg. response time) is sent to another service which will store it. The log file is then truncated. The actual requests are <strong>never</strong> stored.</p>
+	<p>No data is being stored on our serveres. Monitoring & logging is entirely disabled.</p>
 
 	<hr>
 
 	<div class="footer">
-		<p>Made by <a href="https://twitter.com/lasserafn" rel="noopener" target="_blank">Lasse Rafn</a></p>
+		<p>Made by <a href="https://twitter.com/lasserafn" rel="noopener" target="_blank">Lasse Rafn</a> with help of contributors</p>
 		<p><a href="https://github.com/LasseRafn/ui-avatars" rel="noopener" target="_blank">Code on GitHub</a></p>
 	</div>
 </div>
