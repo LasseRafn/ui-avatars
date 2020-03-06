@@ -15,6 +15,7 @@ class Input
 	public $uppercase;
 	public $initials;
 	public $bold;
+	public $format;
 
 	private $hasQueryParameters = false;
 
@@ -28,6 +29,7 @@ class Input
 		'rounded',
 		'uppercase',
 		'bold',
+		'format'
 	];
 
 	public function __construct() {
@@ -45,6 +47,7 @@ class Input
 		$this->rounded   = $this->getRounded();
 		$this->uppercase = $this->getUppercase();
 		$this->initials  = $this->getInitials();
+		$this->format    = $this->getFormat();
 		$this->cacheKey  = $this->generateCacheKey();
 		$this->fixInvalidInput();
 	}
@@ -63,6 +66,14 @@ class Input
 
 	private function getInitials() {
 		return ( new Initials )->length( $this->length )->keepCase( ! $this->uppercase )->generate( $this->name );
+	}
+
+	private function getFormat() {
+		if (in_array($_GET['format'] ?? '', ['png', 'svg'], true)) {
+			return $_GET['format'];
+		}
+
+		return strpos( $_SERVER['HTTP_ACCEPT'] ?? $_REQUEST['Accept'] ?? '', 'image/svg+xml' ) !== false ? 'svg' : 'png';
 	}
 
 	private function generateCacheKey() {

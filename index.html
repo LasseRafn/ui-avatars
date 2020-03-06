@@ -133,6 +133,10 @@
 	<code class="get" onclick="window.open('/api/?uppercase=false&name=different+Case')">https://ui-avatars.com/api/?<span class="param">uppercase</span>=<span class="value">false</span>&<span
 		class="param">name</span>=<span class="value">different+Case</span></code>
 
+	<h3 id="format">Format (<code class="inline">format</code>)</h3>
+	<p>Decide if the API should return SVG or PNG. Default: svg if the <code class="inline">Accept</code> header includes <code class="inline">image/svg+xml</code>, png otherwise</p>
+	<code class="get" onclick="window.open('/api/?format=svg')">https://ui-avatars.com/api/?<span class="param">format</span>=<span class="value">svg</span></code>
+
 	<p>All settings above can be mixed together as you desire.</p>
 
 	<h2>With Gravatar or similar</h2>
@@ -154,6 +158,7 @@
 		<li>rounded</li>
 		<li>uppercase</li>
 		<li>bold</li>
+        <li>format</li>
 	</ul>
 
 	<h2>Retina</h2>
