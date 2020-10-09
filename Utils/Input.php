@@ -19,8 +19,6 @@ class Input
 
 	private $hasQueryParameters = false;
 
-	private $textColorRandom = '#222';
-
 	private static $indexes = [
 		'name',
 		'size',
