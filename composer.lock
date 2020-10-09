@@ -340,16 +340,16 @@
         },
         {
             "name": "overtrue/pinyin",
-            "version": "4.0.5",
+             "version": "4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/pinyin.git",
-                "reference": "94fdb3ea6eca5677afd9548111d95bedcd5a4086"
+                "reference": "b17c9c8be23e89fe3f074025b3c6bc034bfb2a90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/pinyin/zipball/94fdb3ea6eca5677afd9548111d95bedcd5a4086",
-                "reference": "94fdb3ea6eca5677afd9548111d95bedcd5a4086",
+                "url": "https://api.github.com/repos/overtrue/pinyin/zipball/b17c9c8be23e89fe3f074025b3c6bc034bfb2a90",
+                "reference": "b17c9c8be23e89fe3f074025b3c6bc034bfb2a90",
                 "shasum": ""
             },
             "require": {

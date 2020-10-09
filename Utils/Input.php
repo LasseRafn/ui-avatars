@@ -43,7 +43,6 @@ class Input
 		$this->background = $this->getBackground();
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
 		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
-
 		$this->bold      = $this->getBold();
 		$this->rounded   = $this->getRounded();
 		$this->uppercase = $this->getUppercase();
