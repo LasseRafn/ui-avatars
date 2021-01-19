@@ -321,12 +321,16 @@ class Input
 	{
 		// check if the background is dark
 		if ( $_GET['background'] === 'dark') {
-      		$colors = $this->darkBgColors;
+			$colors = $this->darkBgColors;
+			$randomColor = $colors[ random_int( 0, \count( $colors ) - 1 ) ];
+			return $randomColor["b"];
     	}
     
 		// check if the background is light
 		if ( $_GET['background'] === 'light') {
 			$colors = $this->lightBgColors;
+			$randomColor = $colors[ random_int( 0, \count( $colors ) - 1 ) ];
+			return $randomColor["b"];
 		}
 
 		if ( $_GET['background'] === 'random' ) {
