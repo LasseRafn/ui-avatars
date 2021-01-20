@@ -42,7 +42,8 @@ class Input
 		$this->color      = $this->getTextColor();
 		$this->background = $this->getBackground();
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
-		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.5 );
+		$this->fontSize   = (double) ( $_GET['font-size'] ?? 0.4375 );
+
 		$this->bold      = $this->getBold();
 		$this->rounded   = $this->getRounded();
 		$this->uppercase = $this->getUppercase();
@@ -64,7 +65,9 @@ class Input
 
 	private function getBackground()
 	{
-		if ( $_GET['background'] === 'random' ) {
+		$background = $_GET['background'] ?? '#ddd';
+		
+		if ( $background === 'random' ) {
 			$colors = [
 				[ 'b' => '5e35b1', 't' => 'FFFFFF', ],
 				[ 'b' => '512da8', 't' => 'FFFFFF', ],
@@ -317,13 +320,13 @@ class Input
 				[ 'b' => 'bdbdbd', 't' => '000000', ],
 			];
 
-			$randomColor = $colors[ random_int( 0, \count( $colors ) - 1 ) ];
+			$randomColor = $colors[ rand( 0, \count( $colors ) - 1 ) ];
 			$this->setTextColor( $randomColor["t"] );
 
 			return $randomColor["b"];
 		}
 
-		return $_GET['background'] ?? '#ddd';
+		return $background;
 	}
 
 	private function setTextColor( $color )
