@@ -1,19 +1,9 @@
 Code for https://ui-avatars.com
 
-## Contributors
-
-This project exists thanks to all the people who contribute. 
-<a href="https://github.com/LasseRafn/ui-avatars/graphs/contributors"><img src="https://opencollective.com/ui-avatars/contributors.svg?width=890&button=false" /></a>
-
-
-## Backers
-
-Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/ui-avatars#backer)]
-
-<a href="https://opencollective.com/ui-avatars#backers" target="_blank"><img src="https://opencollective.com/ui-avatars/backers.svg?width=890"></a>
-
 
 ## Sponsors
+
+<a href="https://tellusdb.com?ref=ui-avatars-gh" target="_blank"><img src="https://tellusdb.com/images/ext/uiavatars-ad.png" alt="TellusDB Country Data API"></a>
 
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/ui-avatars#sponsor)]
 
@@ -28,4 +18,17 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/ui-avatars/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ui-avatars/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/ui-avatars/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ui-avatars/sponsor/9/avatar.svg"></a>
 
+
+
+## Contributors
+
+This project exists thanks to all the people who contribute. 
+<a href="https://github.com/LasseRafn/ui-avatars/graphs/contributors"><img src="https://opencollective.com/ui-avatars/contributors.svg?width=890&button=false" /></a>
+
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/ui-avatars#backer)]
+
+<a href="https://opencollective.com/ui-avatars#backers" target="_blank"><img src="https://opencollective.com/ui-avatars/backers.svg?width=890"></a>
 
