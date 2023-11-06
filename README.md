@@ -3,7 +3,7 @@ Code for https://ui-avatars.com
 
 ## Sponsors
 
-<a href="https://tellusdb.com?ref=ui-avatars-gh" target="_blank"><img src="https://tellusdb.com/images/ext/uiavatars-ad.png" alt="TellusDB Country Data API"></a>
+<a href="https://tellusdb.com?ref=ui-avatars-gh" target="_blank"><img style="width: 600px;" src="https://tellusdb.com/images/ext/uiavatars-ad.png" alt="TellusDB Country Data API"></a>
 
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/ui-avatars#sponsor)]
 
