@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  ui-avatars:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8678:8678"

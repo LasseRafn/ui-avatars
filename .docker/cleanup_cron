@@ -1,0 +1,1 @@
+* * * * * /usr/local/bin/php /var/www/html/cron/cleanup.php >> /var/log/cron_cleanup.log 2>&1
