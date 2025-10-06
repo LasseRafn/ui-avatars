@@ -1,14 +1,53 @@
-FROM kstaken/apache2
-LABEL name "my-docker-deployment"
-RUN apt-get update && apt-get install -y php5 curl git zip libapache2-mod-php5 php5-mysql php5-cli && apt-get clean && rm -rf /var/lib/apt/lists/*
+FROM php:8.4-fpm
 
-COPY vendor /var/www/vendor
-COPY Utils /var/www/Utils
-COPY api /var/www/api
-COPY assets /var/www/assets
-COPY index.html /var/www/index.html
+# Install system dependencies and Nginx
+RUN apt-get update && apt-get install -y \
+    nginx \
+    git \
+    unzip \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libwebp-dev \
+    libxpm-dev \
+    libgd-dev \
+    cron \
+    supervisor \
+    && docker-php-ext-configure gd \
+        --with-freetype \
+        --with-jpeg \
+        --with-webp \
+        --with-xpm \
+    && docker-php-ext-install gd \
+    && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 80
-EXPOSE 443
+# Install Composer globally
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy application source code
+COPY . /var/www/html
+
+RUN mkdir -p /var/www/html/cache \
+    && chown -R www-data:www-data cache \
+    && chmod -R 755 cache \
+    && composer install --no-dev --optimize-autoloader \
+    && rm /etc/nginx/sites-enabled/default
+
+COPY ./.docker/nginx.conf /etc/nginx/nginx.conf
+COPY ./.docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Set up cron job to clean cache
+COPY ./.docker/cleanup_cron /tmp/cleanup_cron
+RUN crontab -u www-data /tmp/cleanup_cron && rm /tmp/cleanup_cron \
+    && touch /var/log/cron_cleanup.log \
+    && chown www-data:www-data /var/log/cron_cleanup.log
+
+
+RUN chown -R www-data:www-data /var/www/html
+
+EXPOSE 8678
+
+CMD ["/usr/bin/supervisord"]
