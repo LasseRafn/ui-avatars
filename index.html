@@ -202,41 +202,25 @@
 
 	<hr>
 
-	<div id="backers" style="text-align: center; margin: 2em 0;">
+		<div style="text-align: center; margin: 2em 0;">
 		<h2 style="margin: 0 0 0.25em;">Backers</h2>
 		<p style="font-size: 0.875em; color: #888; margin: 0 0 1em;">Thank you to all our backers! <a href="https://opencollective.com/ui-avatars#backer" rel="noopener" target="_blank">Become a backer</a></p>
-		<div id="backer-list" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;"></div>
+		<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+			<a href="https://hellogustav.com" target="_blank" rel="noopener" title="Gustav"><img src="https://opencollective-production.s3.us-west-1.amazonaws.com/f7943c80-a3eb-11e9-a925-7d30e75b0d41.png" alt="Gustav" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://benjamin.piouffle.com/" target="_blank" rel="noopener" title="Benjamin Piouffle"><img src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/e33c8472-2c7a-47d2-880d-5d97c8f1d53e/profile-modified.jpg" alt="Benjamin Piouffle" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://exyplis.com" target="_blank" rel="noopener" title="Exyplis"><img src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/d8341484-ff57-4b1a-9046-4d1dd1245695/756bdfcd-ff30-41c2-8098-763fa511562c.png" alt="Exyplis" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://getloyal.io" target="_blank" rel="noopener" title="Loyal"><img src="https://ui-avatars.com/api/?name=Loyal&size=48&background=f5f7f9&color=568bbf&rounded=true" alt="Loyal" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://www.cloud66.com" target="_blank" rel="noopener" title="Cloud 66"><img src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/19a3d1e9-33fc-4efa-a76f-1e6544f7ffe2/fd3b90a5-bd9e-49ae-9f31-64928b57c289.png" alt="Cloud 66" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://opencollective.com/giovanni-orciuolo" target="_blank" rel="noopener" title="Giovanni Orciuolo"><img src="https://www.gravatar.com/avatar/ae460afad539ddc6f6d57dd17032e3b5?default=404" alt="Giovanni Orciuolo" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://www.lodago.com" target="_blank" rel="noopener" title="Lodago"><img src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/4d7132e9-7dea-41b5-8887-76815d5f8cea/a8c7753c-9847-49eb-925e-e775da48e4da.png" alt="Lodago" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://opencollective.com/guest-3078cd8a" target="_blank" rel="noopener" title="vBMods That Rock Forum"><img src="https://ui-avatars.com/api/?name=vBMods+That+Rock+Forum&size=48&background=f5f7f9&color=568bbf&rounded=true" alt="vBMods That Rock Forum" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://opencollective.com/cedric-barthe" target="_blank" rel="noopener" title="Cédric Barthe"><img src="https://www.gravatar.com/avatar/73924913877e6bcaf412d64ab5d1a05f?default=404" alt="Cédric Barthe" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://opencollective.com/avery-b" target="_blank" rel="noopener" title="Avery B"><img src="https://ui-avatars.com/api/?name=Avery+B&size=48&background=f5f7f9&color=568bbf&rounded=true" alt="Avery B" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://automatio.ai/" target="_blank" rel="noopener" title="Automatio AI"><img src="https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/e64d5bbb-bf37-48d0-8327-ff18da511363/DMRkqMWr63xns1NoolkE_qnRd4EwybzHyn6b916iB_geMQbWAmNIfrMc216ST6_composites_zwA55Os7BZBsfFNcRvDa_f5DnyHKpKRozblXPguMQ.png" alt="Automatio AI" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://opencollective.com/guest-a2c3a7da" target="_blank" rel="noopener" title="Sparsh Kaushik"><img src="https://ui-avatars.com/api/?name=Sparsh+Kaushik&size=48&background=f5f7f9&color=568bbf&rounded=true" alt="Sparsh Kaushik" width="48" height="48" style="border-radius: 50%;"/></a>
+			<a href="https://opencollective.com/gabriela-larregle" target="_blank" rel="noopener" title="Gabriela Larregle"><img src="https://ui-avatars.com/api/?name=Gabriela+Larregle&size=48&background=f5f7f9&color=568bbf&rounded=true" alt="Gabriela Larregle" width="48" height="48" style="border-radius: 50%;"/></a>
+		</div>
 	</div>
-
-	<script>
-		fetch('https://opencollective.com/ui-avatars/members.json')
-			.then(function (r) { return r.json(); })
-			.then(function (members) {
-				var backers = members.filter(function (m) {
-					return m.role === 'BACKER' && m.totalAmountDonated > 0 && m.name !== 'Guest' && m.name !== 'incognito';
-				}).sort(function (a, b) { return b.totalAmountDonated - a.totalAmountDonated; });
-
-				var container = document.getElementById('backer-list');
-				backers.forEach(function (backer) {
-					var url = backer.website ? (backer.website.indexOf('http') === 0 ? backer.website : 'https://' + backer.website) : backer.github || backer.profile;
-					var a = document.createElement('a');
-					a.href = url;
-					a.target = '_blank';
-					a.rel = 'noopener';
-					a.title = backer.name;
-
-					var img = document.createElement('img');
-					img.src = backer.image || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(backer.name) + '&size=48&background=f5f7f9&color=568bbf&rounded=true';
-					img.alt = backer.name;
-					img.width = 48;
-					img.height = 48;
-					img.style.borderRadius = '50%';
-
-					a.appendChild(img);
-					container.appendChild(a);
-				});
-			}).catch(function () {});
-	</script>
 
 	<hr>
 
