@@ -202,6 +202,44 @@
 
 	<hr>
 
+	<div id="backers" style="text-align: center; margin: 2em 0;">
+		<h2 style="margin: 0 0 0.25em;">Backers</h2>
+		<p style="font-size: 0.875em; color: #888; margin: 0 0 1em;">Thank you to all our backers! <a href="https://opencollective.com/ui-avatars#backer" rel="noopener" target="_blank">Become a backer</a></p>
+		<div id="backer-list" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;"></div>
+	</div>
+
+	<script>
+		fetch('https://opencollective.com/ui-avatars/members.json')
+			.then(function (r) { return r.json(); })
+			.then(function (members) {
+				var backers = members.filter(function (m) {
+					return m.role === 'BACKER' && m.totalAmountDonated > 0 && m.name !== 'Guest' && m.name !== 'incognito';
+				}).sort(function (a, b) { return b.totalAmountDonated - a.totalAmountDonated; });
+
+				var container = document.getElementById('backer-list');
+				backers.forEach(function (backer) {
+					var url = backer.website ? (backer.website.indexOf('http') === 0 ? backer.website : 'https://' + backer.website) : backer.github || backer.profile;
+					var a = document.createElement('a');
+					a.href = url;
+					a.target = '_blank';
+					a.rel = 'noopener';
+					a.title = backer.name;
+
+					var img = document.createElement('img');
+					img.src = backer.image || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(backer.name) + '&size=48&background=f5f7f9&color=568bbf&rounded=true';
+					img.alt = backer.name;
+					img.width = 48;
+					img.height = 48;
+					img.style.borderRadius = '50%';
+
+					a.appendChild(img);
+					container.appendChild(a);
+				});
+			});
+	</script>
+
+	<hr>
+
 	<div class="footer">
 		<p>Made by <a href="https://twitter.com/lasserafn" rel="noopener" target="_blank">Lasse Rafn</a> with help of contributors</p>
 		<p><a href="https://github.com/LasseRafn/ui-avatars" rel="noopener" target="_blank">Code on GitHub</a></p>
