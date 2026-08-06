@@ -7,6 +7,8 @@ class Input
 	public $name;
 	public $length;
 	public $size;
+	public $width;
+	public $height;
 	public $fontSize;
 	public $background;
 	public $color;
@@ -22,6 +24,8 @@ class Input
 	private static $indexes = [
 		'name',
 		'size',
+		'width',
+		'height',
 		'background',
 		'color',
 		'length',
@@ -39,6 +43,8 @@ class Input
 
 		$this->name       = $_GET['name'] ?? 'John Doe';
 		$this->size       = (int) ( $_GET['size'] ?? 64 );
+		$this->width      = (int) ( $_GET['width'] ?? $this->size );
+		$this->height     = (int) ( $_GET['height'] ?? $this->size );
 		$this->color      = $this->getTextColor();
 		$this->background = $this->getBackground();
 		$this->length     = (int) ( $_GET['length'] ?? 2 );
@@ -360,7 +366,7 @@ class Input
 
 	private function generateCacheKey()
 	{
-		return md5( "{$this->initials}-{$this->length}-{$this->size}-{$this->fontSize}-{$this->background}-{$this->color}-{$this->rounded}-{$this->uppercase}-{$this->bold}" );
+		return md5( "{$this->initials}-{$this->length}-{$this->width}-{$this->height}-{$this->fontSize}-{$this->background}-{$this->color}-{$this->rounded}-{$this->uppercase}-{$this->bold}" );
 	}
 
 	private function fixInvalidInput()
@@ -377,13 +383,20 @@ class Input
 			$this->fontSize = 1;
 		}
 
-		if ( $this->size <= 15 ) {
-			$this->size = 16;
+		$this->width = $this->getCorrectSize($this->width);
+		$this->height = $this->getCorrectSize($this->height);
+	}
+
+	private function getCorrectSize( $sizeToCheck ) {
+		if ( $sizeToCheck <= 15 ) {
+			return 16;
 		}
 
-		if ( $this->size > 512 ) {
-			$this->size = 512;
+		if ( $sizeToCheck > 512 ) {
+			return 512;
 		}
+
+		return $sizeToCheck;
 	}
 
 	private function detectQueryParameters()

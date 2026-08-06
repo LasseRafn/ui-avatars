@@ -34,7 +34,7 @@ if ( $input->format === 'svg' ) {
 	$background = preg_replace( '/[^a-fA-F0-9#]/', '', trim( $input->background, '#' ) );
 	$color      = preg_replace( '/[^a-fA-F0-9#]/', '', trim( $input->color, '#' ) );
 
-	echo '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' . $input->size . 'px" height="' . $input->size . 'px" viewBox="0 0 ' . $input->size . ' ' . $input->size . '" version="1.1"><' . ( $input->rounded ? 'circle' : 'rect' ) . ' fill="#' . $background . '" cx="' . ( $input->size / 2 ) . '" width="' . $input->size . '" height="' . $input->size . '" cy="' . ( $input->size / 2 ) . '" r="' . ( $input->size / 2 ) . '"/><text x="50%" y="50%" style="color: #' . $color . '; line-height: 1;font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif;" alignment-baseline="middle" text-anchor="middle" font-size="' . round( $input->size * $input->fontSize ) . '" font-weight="' . ( $input->bold ? 600 : 400 ) . '" dy=".1em" dominant-baseline="middle" fill="#' . $color . '">' . $initials . '</text></svg>';
+	echo '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' . $input->width . 'px" height="' . $input->height . 'px" viewBox="0 0 ' . $input->width . ' ' . $input->height . '" version="1.1"><' . ( $input->rounded ? 'circle' : 'rect' ) . ' fill="#' . $background . '" cx="' . ( $input->width / 2 ) . '" width="' . $input->width . '" height="' . $input->height . '" cy="' . ( $input->height / 2 ) . '" r="' . ( $input->width / 2 ) . '"/><text x="50%" y="50%" style="color: #' . $color . '; line-height: 1;font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif;" alignment-baseline="middle" text-anchor="middle" font-size="' . round( $input->width * $input->fontSize ) . '" font-weight="' . ( $input->bold ? 600 : 400 ) . '" dy=".1em" dominant-baseline="middle" fill="#' . $color . '">' . $initials . '</text></svg>';
 
 	return;
 } else {
@@ -58,7 +58,8 @@ header( 'Expires: ' . gmdate( 'D, d M Y H:i:s \G\M\T', time() + 1814400 ) );
 $image = $avatar->name( $input->name )
                 ->length( $input->length )
                 ->fontSize( $input->fontSize )
-                ->size( $input->size )
+				->width( $input->width )
+				->height( $input->height )
                 ->background( $input->background )
                 ->color( $input->color )
                 ->smooth()
