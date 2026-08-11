@@ -24,8 +24,6 @@ class Input
 	private static $indexes = [
 		'name',
 		'size',
-		'width',
-		'height',
 		'background',
 		'color',
 		'length',
@@ -33,7 +31,9 @@ class Input
 		'rounded',
 		'uppercase',
 		'bold',
-		'format'
+		'format',
+		'width',
+		'height'
 	];
 
 	public function __construct()
