@@ -55,6 +55,7 @@ class Input
 		$this->uppercase = $this->getUppercase();
 		$this->initials  = $this->getInitials();
 		$this->format    = $this->getFormat();
+		$this->normalizeColors();
 		$this->cacheKey  = $this->generateCacheKey();
 		$this->fixInvalidInput();
 	}
@@ -431,5 +432,59 @@ class Input
 		}
 
 		return true;
+	}
+
+	private function normalizeColors()
+	{
+		if ($this->format === 'svg') {
+			$this->background = $this->convertRgbaToHex($this->background);
+			$this->color = $this->convertRgbaToHex($this->color);
+		} else {
+			$this->background = $this->convertHexToRgba($this->background);
+			$this->color = $this->convertHexToRgba($this->color);
+		}
+	}
+
+	private function convertHexToRgba($hex)
+	{
+		$hexStr = ltrim($hex, '#');
+
+		if (preg_match('/^[a-fA-F0-9]{8}$/', $hexStr)) {
+			$r = hexdec(substr($hexStr, 0, 2));
+			$g = hexdec(substr($hexStr, 2, 2));
+			$b = hexdec(substr($hexStr, 4, 2));
+			$a = round(hexdec(substr($hexStr, 6, 2)) / 255, 2);
+
+			return "rgba($r,$g,$b,$a)";
+		} elseif (preg_match('/^[a-fA-F0-9]{4}$/', $hexStr)) {
+			$r = hexdec(str_repeat(substr($hexStr, 0, 1), 2));
+			$g = hexdec(str_repeat(substr($hexStr, 1, 1), 2));
+			$b = hexdec(str_repeat(substr($hexStr, 2, 1), 2));
+			$a = round(hexdec(str_repeat(substr($hexStr, 3, 1), 2)) / 255, 2);
+
+			return "rgba($r,$g,$b,$a)";
+		}
+
+		return $hex;
+	}
+
+	private function convertRgbaToHex($rgba)
+	{
+		if (preg_match('/^rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d\.]+)\s*\)$/i', $rgba, $matches)) {
+			$r = str_pad(dechex((int)$matches[1]), 2, '0', STR_PAD_LEFT);
+			$g = str_pad(dechex((int)$matches[2]), 2, '0', STR_PAD_LEFT);
+			$b = str_pad(dechex((int)$matches[3]), 2, '0', STR_PAD_LEFT);
+			$a = str_pad(dechex((int)round((float)$matches[4] * 255)), 2, '0', STR_PAD_LEFT);
+
+			return '#' . $r . $g . $b . $a;
+		} elseif (preg_match('/^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i', $rgba, $matches)) {
+			$r = str_pad(dechex((int)$matches[1]), 2, '0', STR_PAD_LEFT);
+			$g = str_pad(dechex((int)$matches[2]), 2, '0', STR_PAD_LEFT);
+			$b = str_pad(dechex((int)$matches[3]), 2, '0', STR_PAD_LEFT);
+
+			return '#' . $r . $g . $b;
+		}
+
+		return $rgba;
 	}
 }
