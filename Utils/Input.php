@@ -418,7 +418,8 @@ class Input
 			return false;
 		}
 
-		$requestUrl = ltrim( $_SERVER['REQUEST_URI'], '/' );
+		$requestUrl = parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH );
+		$requestUrl = ltrim( $requestUrl, '/' );
 		$requestUrl = ltrim( $requestUrl, 'api' );
 		$requestUrl = ltrim( $requestUrl, '/' );
 
