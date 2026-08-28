@@ -14,7 +14,7 @@ header( 'Access-Control-Max-Age: 1814400' );
 header( 'Access-Control-Allow-Headers: Content-Type, Accept, X-Requested-With, remember-me' );
 header( 'Cache-Control: max-age=1814400' );
 
-$input  = new \Utils\Input;
+$input  = new LasseRafn\UiAvatars\Input();
 $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar();
 
 if ( $input->format === 'svg' ) {
