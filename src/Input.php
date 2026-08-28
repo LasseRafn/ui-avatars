@@ -1,4 +1,6 @@
-<?php namespace Utils;
+<?php
+
+namespace LasseRafn\UiAvatars;
 
 use LasseRafn\Initials\Initials;
 

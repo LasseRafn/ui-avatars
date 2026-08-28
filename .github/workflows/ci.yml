@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request: ~
+  push: ~
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          coverage: none
+          tools: composer
+
+      - run: composer install --no-interaction --no-progress --prefer-dist
+
+      - run: php -S 127.0.0.1:8678 -t . api/index.php > /tmp/server.log 2>&1 &
+
+      - run: sleep 1
+
+      - run: vendor/bin/phpunit
